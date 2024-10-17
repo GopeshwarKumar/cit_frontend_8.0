@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+  background: black;
+  font-family: roboto flex;
+  font-size: 25px;
+}
+
+h1{
+  font-weight: 600;
+  font-size: 33px;
+}
+h2{
+  font-weight: 600;
+  font-size: 25px;
+}
+a{
+  color: blue;
+  text-decoration: underline;
+  text-decoration-color: blue;
+} 
+
+/* .main{
+  background-image: url("/public/assets/bg.webp");
+} */
+.hoverabout:hover{
+  box-shadow: 3px 3px 20px 2px aqua;
+  transition: 0.3s;
+}
+/* .citword{
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-image: url("/public/assets/istelogo.png");
+} */
+.citword {
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-image: url("/public/assets/bggg.avif");
+  background-size: cover; /* Optional: scales the background image */
+}
+.aboutpage{
+  background-image: url("/public/assets/bg.webp");
+}
+
