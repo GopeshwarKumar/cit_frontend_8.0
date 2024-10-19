@@ -107,9 +107,9 @@ function LandingPage() {
       <a href='https://www.linkedin.com/company/istenitdgp/'><FaLinkedin className='text-blue-500 hover:rounded-[15px] hover:text-blue-700 xl:text-[30px] lg:text-[50px] md:text-[30px] sm:text-[25px] text-[25px]'/></a>
 
     </div>
-    <p className='sm:text-xl font-sans text-[10px]'>Visit Our Official Website for more inform<sup className='text-yellow-300'>n</sup><br/>
+    {/* <p className='sm:text-xl font-sans text-[10px]'>Visit Our Official Website for more inform<sup className='text-yellow-300'>n</sup><br/>
     <a href='https://www.istenitdgp.com/' className='text-center sm:text-xl text-[10px] lowercase text-red-500 no-underline hover:underline underline-offset-4 focus:text-blue-700'>istenitdgp.com</a>
-    </p>
+    </p> */}
 
     </div>
 
