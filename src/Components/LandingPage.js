@@ -77,7 +77,7 @@ function LandingPage() {
 <h3 className='text-center whitespace-nowrap xl:text-[40px] lg:text-[35px] md:text-[30px] sm:text-[26px] text-[13px] font-serif tracking-[2px]'>Cognitive intelligence test 7.0</h3>
 </span>
 
-      <img src='https://cdn.pixabay.com/photo/2021/09/18/23/47/working-6636475_1280.jpg' className='w-[100%] h-[70vh]'/>
+      <img src='https://cdn.pixabay.com/photo/2021/09/18/23/47/working-6636475_1280.jpg' className='w-[100%] h-[50vh]'/>
       
 
       </div>
@@ -85,9 +85,7 @@ function LandingPage() {
  {/* 2nd image */}
     <div className='section2 w-full h-1/2 uppercase flex flex-col items-center justify-center gap-[3vh]'>
     
-
-
-   <div className='mt-[3%] flex  items-center gap-[3vh] justify-center'>
+   <div className='mt-[10%] flex  items-center gap-[3vh] justify-center'>
       {/* register and login button */}
 
     <Link to="/register" ref={button} onClick={goRegister} className='hoverabout px-[10px] py-[5px] no-underline text-black hover:text-pink-500 hover:font-bold bg-slate-500 rounded-sm opacity-70 hover:opacity-100 hover:tracking-widest'>Register</Link>
