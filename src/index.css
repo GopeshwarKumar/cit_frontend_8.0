@@ -45,10 +45,10 @@ a{
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  background-image: url("/public/assets/bggg.avif");
+  background-image: url("/public//assets//citworBgText.avif");
   background-size: cover; /* Optional: scales the background image */
 }
-.aboutpage{
+/* .aboutpage{
   background-image: url("/public/assets/bg.webp");
-}
+} */
 

@@ -6,6 +6,7 @@ import { Link, Route, Routes } from 'react-router-dom';
 import Login from './Login';
 import Register from './Register';
 import About from './About';
+import FaqsQuestions from './FaqsQuestions';
       
 
 function LandingPage() {
@@ -29,6 +30,7 @@ function LandingPage() {
       scrub:true,
       lerp:1,
     })
+
   },[])
 
   const goLogin=()=>{
@@ -48,12 +50,12 @@ function LandingPage() {
    <Routes>
         <Route path='/register' element={<Register/>}/>
         <Route path='/login' element={<Login/>}/>
-        <Route path='/faqs' element={<h1>FAQS PAGE</h1>} />
+        <Route path='/faqs' element={<FaqsQuestions/>} />
         <Route path='/about' element={<About/>}/>
       </Routes>
 
    {/* main div */}
-   <div ref={ref1} className='main w-screen min-h-screen bg-[url("/public/assets/bgcit.jpg")] flex flex-col'>
+   <div ref={ref1} className='main w-screen min-h-screen bg-[url("/public/assets/citbackground.jpg")] flex flex-col'>
 
      {/* 1st image */}
     
@@ -63,8 +65,8 @@ function LandingPage() {
         {/* iste logo */}
         <img src='/assets/istelogo.png' className='2xl:w-[70px] 2xl:h-[70px] xl:w-[60px] xl:h-[60px]  lg:w-[50px] lg:h-[50px] md:w-[40px] md:h-[40px] sm:w-[40px] sm:h-[40px] w-[40px] h-[40px] absolute top-3 left-6 hover:scale-125 transition-all '/>
         <div className='absolute right-5 flex items-center gap-[15px] '>
-        <Link to={"/about"} className='text-white no-underline py-[5px] px-[10px] text-[15px] 2xl:text-[25px] xl:text-[25px] lg:text-[22px] md:text-[20px] sm:text-[20px] hover:underline underline-offset-8 transition-all  '>ABOUT US</Link>
-          <Link className='text-white no-underline py-[5px] px-[10px] text-[15px] 2xl:text-[25px] xl:text-[25px] lg:text-[22px] md:text-[20px] sm:text-[20px] hover:underline underline-offset-8 transition-all '>FAQS</Link>
+        <Link to={"/about"} className='text-black font-bold no-underline py-[5px] px-[10px] text-[15px] 2xl:text-[25px] xl:text-[25px] lg:text-[22px] md:text-[20px] sm:text-[20px] hover:underline underline-offset-8 transition-all'>ABOUT US</Link>
+          <Link to={"/faqs"} className='text-black font-bold no-underline py-[5px] px-[10px] text-[15px] 2xl:text-[25px] xl:text-[25px] lg:text-[22px] md:text-[20px] sm:text-[20px] hover:underline underline-offset-8 transition-all '>FAQS</Link>
         </div>
       </div>
 <span ref={text} className='w-screen leading-tight absolute flex flex-col items-center justify-center opacity-40'>
@@ -75,7 +77,7 @@ function LandingPage() {
 <h3 className='text-center whitespace-nowrap xl:text-[40px] lg:text-[35px] md:text-[30px] sm:text-[26px] text-[13px] font-serif tracking-[2px]'>Cognitive intelligence test 7.0</h3>
 </span>
 
-      <img src='/assets/hdesk.webp' className='w-[100%] h-[70vh]'/>
+      <img src='https://cdn.pixabay.com/photo/2021/09/18/23/47/working-6636475_1280.jpg' className='w-[100%] h-[70vh]'/>
       
 
       </div>

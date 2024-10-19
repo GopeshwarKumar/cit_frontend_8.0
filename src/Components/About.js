@@ -1,19 +1,13 @@
 import React from 'react'
 import { MdArrowBackIos } from 'react-icons/md'
 import { Link } from 'react-router-dom'
+import Navbar from './Navbar'
 
 function About() {
   return (
-    <div className='aboutpage'>
+    <div className=' bg-[url("https://cdn.pixabay.com/photo/2018/01/06/04/08/blue-3064317_1280.jpg")] '>
     
-    <nav className='w-screen h-[75px] flex items-center justify-between px-[10px] py-10'>
-        <div className=''>
-        <Link to={"http://localhost:3000/"}><img src='/assets/istelogo.png' className='2xl:w-[70px] 2xl:h-[70px] xl:w-[60px] xl:h-[60px]  lg:w-[50px] lg:h-[50px] md:w-[40px] md:h-[40px] sm:w-[40px] sm:h-[40px] w-[40px] h-[40px] absolute top-3 left-6 hover:scale-125 transition-all '/></Link>
-        </div>
-        <Link to={"http://localhost:3000/"}>
-            <MdArrowBackIos className='font-extralight xl:text-[55px] lg:text-[55px] md:text-[55px] sm:text-[45px] text-[45px] focus:scale-90 rounded-[10px] hover:text-black'/>
-        </Link>
-    </nav>
+    <Navbar/>
 
         <h1 className='text-center 2xl:text-[100px] xl:text-[100px] lg:text-[100px] md:text-[90px] sm:text-[70px] text-[40px]'>About Us</h1>
 
@@ -31,15 +25,15 @@ function About() {
     <p className=' xl:text-[30px] lg:text-[30px] text-[20px] text-center px-[10px]'>Candidates can attempt CIT only once in any <br/>of three available slots</p>
 
     <div className='flex items-center justify-center mt-[4%] xl:text-[30px] lg:text-[30px] md:text-[20px] sm:text-[20px] text-[15px]'>
-        <ul className=''>
-        <li>SLOT1 : MONTH Day Year (x:00 AM - x:yz AM)</li>
-        <li>SLOT2 : MONTH Day Year (x:00 AM - x:yz AM)</li>
-        <li>SLOT3 : MONTH Day Year (x:00 AM - x:yz AM)</li>
+        <ul className='flex justify-around gap-[5vw] px-[3vw] leading-[20px]'>
+        <li><p className='font-bold italic text-yellow-500'>SLOT 1</p><br/>10/09/2024<br/><br/> (x:00 AM - x:yz AM)</li>
+        <li><p className='text-yellow-500 font-bold italic'>SLOT 2</p><br/>10/09/2024<br/><br/>(x:00 AM - x:yz AM)</li>
+        <li><p className='text-yellow-500 font-bold italic'>SLOT 3</p><br/>10/09/2024<br/><br/>(x:00 AM - x:yz AM)</li>
         </ul>
     </div>
 
     <div className='mt-[3%] px-[10px]'>
-        <h1 className='uppercase text-center'>final round</h1>
+        <h1 className='uppercase text-center text-yellow-500'>final round</h1>
 
         <div className='flex items-center justify-center flex-col text-center xl:text-[30px] lg:text-[30px] text-[20px]'>
         <p className=' '>Candidates selected for finale round will receive a mail with details</p>
@@ -55,11 +49,11 @@ function About() {
     <h1 className='uppercase text-center mt-[4%]'>event sponsers</h1>
     
     <div className='flex items-center justify-around gap-[10px] px-[10px]'>
-        <div className='object-cover'>
-            <img src='/assets/techbrain.webp' className='hover:scale-125'/>
+        <div className='object-cover '>
+            <img src='/assets/techbrain.webp' className='hover:scale-105 transition-all hover:rounded-lg hover:bg-black hover:px-4 hover:py-1'/>
         </div>
         <div className='object-cover'>
-            <img src='/assets/ims.jpg' className='hover:scale-125'/>
+            <img src='/assets/ims.jpg' className='hover:scale-125 transition-all hover:rounded-lg'/>
         </div>
     </div>
 
