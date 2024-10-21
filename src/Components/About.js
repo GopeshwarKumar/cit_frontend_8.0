@@ -44,16 +44,16 @@ function About() {
 
     </div>
 
-    <h1 className='uppercase text-center mt-[2%] leading-[30px]'>cash prizes worth <mark>8k</mark> for cit 7.0</h1>
+    <h1 className='uppercase text-center mt-[5%] leading-[30px] vmd:text-[30px] '>cash prizes worth <mark>8k</mark> for cit 7.0</h1>
 
     <h1 className='uppercase text-center mt-[4%]'>event sponsers</h1>
     
-    <div className='flex items-center justify-around gap-[10px] px-[10px]'>
-        <div className='object-cover '>
-            <img src='/assets/techbrain.webp' className='hover:scale-105 transition-all hover:rounded-lg hover:bg-black hover:px-4 hover:py-1'/>
+    <div className='flex items-center justify-around gap-[5vw] p-10'>
+        <div className=' object-cover '>
+            <img src='/assets/techbrain.webp' className='h-[200px] hover:scale-105 transition-all hover:rounded-lg bg-white px-4 hover:py-1 '/>
         </div>
-        <div className='object-cover'>
-            <img src='/assets/ims.jpg' className='hover:scale-125 transition-all hover:rounded-lg'/>
+        <div className=' object-cover'>
+            <img src='/assets/ims.jpg' className='h-[200px] hover:scale-105 transition-all hover:rounded-lg'/>
         </div>
     </div>
 
