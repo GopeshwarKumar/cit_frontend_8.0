@@ -114,7 +114,7 @@ function LandingPage() {
 
 <h1 className='citword text-center text-wrap xl:text-[160px] lg:text-[150px] md:text-[100px] sm:text-[80px] text-[60px] tracking-[7px] font-extrabold'>CIT</h1>
 
-<h3 className='text-center whitespace-nowrap xl:text-[40px] lg:text-[35px] md:text-[30px] sm:text-[26px] text-[13px] font-serif tracking-[2px]'>Cognitive intelligence test 7.0</h3>
+<h3 className='citword text-center whitespace-nowrap xl:text-[40px] lg:text-[35px] md:text-[30px] sm:text-[26px] text-[13px] font-serif tracking-[2px]'>Cognitive intelligence test 7.0</h3>
 </span>
 
       <img src='https://cdn.pixabay.com/photo/2021/09/18/23/47/working-6636475_1280.jpg' className='w-[100%] h-[50vh]'/>
@@ -123,9 +123,9 @@ function LandingPage() {
       </div>
 
  {/* 2nd image */}
-    <div className='section2 w-full h-1/2 uppercase flex flex-col items-center justify-center gap-[3vh] mt-[17%] '>
+    <div className='section2 w-full h-1/2 uppercase flex flex-col items-center justify-center gap-[5vh] py-[3vh] mt-[10%]'>
     
-   <div className='mt-[10%] flex  items-center gap-[3vh] justify-center'>
+   <div className=' flex  items-center gap-[3vh] justify-center'>
       {/* register and login button */}
 
     <Link to="/register" ref={button} onClick={goRegister} className='hoverabout px-[10px] py-[5px] no-underline text-black hover:text-pink-500 hover:font-bold bg-slate-500 rounded-sm opacity-70 hover:opacity-100 hover:tracking-widest'>Register</Link>
@@ -135,16 +135,16 @@ function LandingPage() {
     </div>
 
     {/* timer */}
-    <div className='text-black flex items-center gap-2 '>
-  <div className='border-[2px] sm:leading-[25px] leading-[15px]  text-center text-yellow-300 p-[10px] border-white hover:border-opacity-50 lg:text-[30px] sm:text-[15px] text-[10px]  '>{time.days}<br/>Days</div>
+  <div className='text-black flex items-center gap-2 '>
+  <div className='border-[2px] sm:leading-[25px] leading-[15px]  text-center text-yellow-300 p-[10px] border-white hover:border-opacity-50 lg:text-[30px] sm:text-[18px] text-[10px] animate-pulse '>{time.days}<br/>Days</div>
      
-  <div className='border-[2px] sm:leading-[25px] leading-[15px]  text-center text-yellow-300  p-[10px] border-white hover:border-opacity-50 lg:text-[30px] sm:text-[15px] text-[10px]  '>{time.hours}<br/>Hours</div>
-  <div className='border-[2px] sm:leading-[25px] leading-[15px]  text-center text-yellow-300 p-[10px] border-white hover:border-opacity-50 lg:text-[30px] sm:text-[15px] text-[10px]  '>{time.minutes}<br/>Min</div>
-  <div className='border-[2px] sm:leading-[25px] leading-[15px] text-center text-yellow-300 p-[10px] border-white hover:border-opacity-50 lg:text-[30px] sm:text-[15px] text-[10px]  '>{time.seconds}<br/>Sec</div>
+  <div className='border-[2px] sm:leading-[25px] leading-[15px]  text-center text-yellow-300  p-[10px] border-white hover:border-opacity-50 lg:text-[30px] sm:text-[18px] text-[10px] animate-pulse '>{time.hours}<br/>Hours</div>
+  <div className='border-[2px] sm:leading-[25px] leading-[15px]  text-center text-yellow-300 p-[10px] border-white hover:border-opacity-50 lg:text-[30px] sm:text-[18px] text-[10px] animate-pulse delay-75 '>{time.minutes}<br/>Min</div>
+  <div className='border-[2px] sm:leading-[25px] leading-[15px] text-center text-yellow-300 p-[10px] border-white hover:border-opacity-50 lg:text-[30px] sm:text-[18px] text-[10px] animate-pulse delay-75 '>{time.seconds}<br/>Sec</div>
 </div>
 
 {/* social Media */}
-<div className='flex flex-row items-center justify-center gap-[2vh] xl:py-[40px] lg:py-[40px] md:py-[40px] sm:py-[40px] py-[20px]'>
+<div className='flex flex-row items-center justify-center gap-[2vh] '>
 
 <p className='uppercase xl:text-[25px] lg:text-[20px] md:text-[15px] sm:text-[15px] text-[13px]'>follow us on :</p>
 
