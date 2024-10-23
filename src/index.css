@@ -9,7 +9,7 @@ body{
   padding: 0;
   box-sizing: border-box;
   color: white;
-  background: black;
+  background-color: #3cb371;
   font-family: roboto flex;
   font-size: 25px;
 }
@@ -41,23 +41,52 @@ a{
   background-clip: text;
   background-image: url("/public/assets/istelogo.png");
 } */
-.citword {
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  background-image: url("/public//assets//citworBgText.avif");
-  background-size: cover; /* Optional: scales the background image */
-  }
 /* .aboutpage{
   background-image: url("/public/assets/bg.webp");
-} */
+  } */
 /* .sponserimage1{
   aspect-ratio:1/3;
-}
-.sponserimage2{
-  aspect-ratio:3/2;
-} */
+  }
+  .sponserimage2{
+    aspect-ratio:3/2;
+    } */
+    /* .citword {
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      background-image: url("/public//assets/pexels-pixabay-158826.jpg");
+      background-size: cover; 
+    } */
 
+
+    .citword {
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      background-image: url("/public/assets/citworBgText.avif");
+      background-size: cover; 
+      animation: moveBackground 4s infinite alternate;
+  }
+  
+  @keyframes moveBackground {
+      0% {
+          background-position: 0% 50%;
+          /* opacity: 0.9; */
+      }
+      50% {
+          background-position: 20px 50%;
+          /* opacity: 1; */
+      }
+      100% {
+          background-position: 0% 50%;
+          /* opacity: 0.5; */
+      }
+  }
+  
+
+  .landing{
+    background-color: #3cb371;
+  }
 
 
 

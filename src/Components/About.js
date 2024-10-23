@@ -17,7 +17,7 @@ function About() {
     <mark>CIT 7.0</mark> is one-of-a-kind opportunity for all aspiring students as we unveil exhilarating challenges of national standard over the realms of basic mathematical aptitude, logical & verbal reasoning, and data interpretation. Not only does CIT implant an idea of various acclaimed aptitude tests like <mark>CAT</mark>, but our flagship event also never fails to provide a simulation of the overall screening procedure of the hiring companies. This is the most anticipated online event to compete for <mark>intellectual glory</mark> among multitude of striving contestants.
     </p>
 
-    
+    {/* schedule  */}
     <div>
     <h1 className='text-center xl:text-[50px] lg:text-[50px] md:text-[45px] sm:text-[45px] uppercase leading-[49px] mt-[7%] tracking-[2px] first-letter:text-slate-600 xl:first-letter:text-[69px] lg:first-letter:text-[69px] sm:first-letter:text-[69px] md:first-letter:text-[69px] first-letter:text-[49px]'>schedule for cit test 7.0</h1>
 

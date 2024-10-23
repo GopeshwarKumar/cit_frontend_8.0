@@ -1,10 +1,10 @@
 import React from 'react'
-import LandingPage from './Components/LandingPage'
+import New from './Components/New'
 
 function App() {
   return (
     <>
-    <LandingPage/>
+    <New/>
     </>
   )
 }
