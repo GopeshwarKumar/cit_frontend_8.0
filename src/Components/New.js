@@ -32,14 +32,14 @@ function New() {
         <div className=''>
             <img src='/assets/istelogo.png' alt='lost' className='w-16 h-16 hover:scale-110 hover:skew-x-6'/>
         </div>
-        {/* <div className='flex items-center gap-[15px]  '>
-        <Link className='md:text-[20px] vmd:text-[20px] no-underline underline-offset-4 hover:underline  transition-all focus:text-indigo-600'>About US</Link>
-        <Link className='md:text-[20px] vmd:text-[20px] no-underline underline-offset-4 hover:underline  transition-all focus:text-indigo-600'>FAQS</Link>
-        </div> */}
+        <div className='flex items-center gap-[15px]  '>
+        <Link className='md:text-[20px] vmd:text-[20px] no-underline underline-offset-4 hover:underline  transition-all focus:text-indigo-600 text-white rounded-sm hover:bg-none bg-black px-[10px] py-[5px] '>Register</Link>
+        {/* <Link className='md:text-[20px] vmd:text-[20px] no-underline underline-offset-4 hover:underline  transition-all focus:text-indigo-600'>FAQS</Link> */}
+        </div>
     </nav>
 
     {/* header text cit */}
-    <div className='w-screen 2xl:leading-[150px] xl:leading-[170px] lg:leading-[130px] md:leading-[90px] sm:leading-[75px] mb:leading-[40px] vmd:leading-[35px] 2xl:mt-[7%] xl:mt-[7%] lg:mt-[7%] md:mt-[5%] sm:mt-[25%] mb:mt-[10%] vmd:mt-[12%] '>
+    <div className='w-screen 2xl:leading-[150px] xl:leading-[170px] lg:leading-[130px] md:leading-[90px] sm:leading-[75px] mb:leading-[40px] vmd:leading-[35px] xl:mt-[5%] lg:mt-[7%] md:mt-[5%] sm:mt-[25%] mb:mt-[10%] vmd:mt-[12%] '>
     <h1 className='citword bg-center text-center text-wrap xl:text-[160px] lg:text-[140px] sm:text-[90px] md:text-[100px] mb:text-[45px] vmd:text-[45px] text-[20px] tracking-[1px] font-extrabold uppercase '>Cognitive</h1>
     <h1 className='citword bg-center text-center text-wrap xl:text-[110px] lg:text-[95px] md:text-[65px] sm:text-[60px] mb:text-[35px] vmd:text-[20px] vmd:tracking-[3px] text-[60px] tracking-[7px] font-extrabold uppercase '>intelligence</h1>
     <h1 className='citword bg-center text-center text-wrap xl:text-[160px] lg:text-[150px] md:text-[100px] sm:text-[80px] mb:text-[45px] vmd:text-[30px] text-[60px] tracking-[7px] font-extrabold uppercase '>test</h1>
