@@ -40,9 +40,9 @@ function New() {
 
     {/* header text cit */}
     <div className='w-screen 2xl:leading-[150px] xl:leading-[170px] lg:leading-[130px] md:leading-[90px] sm:leading-[75px] mb:leading-[40px] vmd:leading-[35px] xl:mt-[5%] lg:mt-[7%] md:mt-[5%] sm:mt-[25%] mb:mt-[10%] vmd:mt-[12%] '>
-    <h1 className='citword bg-center text-center text-wrap xl:text-[160px] lg:text-[140px] sm:text-[90px] md:text-[100px] mb:text-[45px] vmd:text-[45px] text-[20px] tracking-[1px] font-extrabold uppercase '>Cognitive</h1>
-    <h1 className='citword bg-center text-center text-wrap xl:text-[110px] lg:text-[95px] md:text-[65px] sm:text-[60px] mb:text-[35px] vmd:text-[20px] vmd:tracking-[3px] text-[60px] tracking-[7px] font-extrabold uppercase '>intelligence</h1>
-    <h1 className='citword bg-center text-center text-wrap xl:text-[160px] lg:text-[150px] md:text-[100px] sm:text-[80px] mb:text-[45px] vmd:text-[30px] text-[60px] tracking-[7px] font-extrabold uppercase '>test</h1>
+    <h1 className='citword bg-center text-center text-wrap xl:text-[155px] lg:text-[130px] sm:text-[90px] md:text-[100px] mb:text-[45px] vmd:text-[45px] text-[20px] tracking-[1px] font-extrabold uppercase '>Cognitive</h1>
+    <h1 className='citword bg-center text-center text-wrap xl:text-[105px] lg:text-[95px] md:text-[65px] sm:text-[60px] mb:text-[35px] vmd:text-[20px] vmd:tracking-[3px] text-[60px] tracking-[7px] font-extrabold uppercase '>intelligence</h1>
+    <h1 className='citword bg-center text-center text-wrap xl:text-[155px] lg:text-[130px] md:text-[100px] sm:text-[80px] mb:text-[45px] vmd:text-[30px] text-[60px] tracking-[7px] font-extrabold uppercase '>test</h1>
     </div>
     
     {/* bottom white section with rows having multiple div flex property */}
