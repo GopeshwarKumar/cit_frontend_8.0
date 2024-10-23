@@ -26,7 +26,7 @@ function New() {
   return (
     <>
     {/* landing page with nav */}
-    <div className='landing w-screen h-screen '>
+    <div className='landing w-screen min-h-screen '>
 
     <nav className='w-screen flex items-center justify-between px-[5vw] py-[3vh] '>
         <div className=''>
