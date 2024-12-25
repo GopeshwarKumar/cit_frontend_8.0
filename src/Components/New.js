@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { PiPlusBold } from 'react-icons/pi';
-import { Link } from 'react-router-dom'
+import { Link, Route, Routes } from 'react-router-dom'
 import { motion } from 'framer-motion';
+import Register from './Register';
 
 
 function New() {
@@ -25,6 +26,10 @@ function New() {
     }
   return (
     <>
+
+    <Routes>
+    <Route path="/register" element={<Register/>} />
+    </Routes>
     {/* landing page with nav */}
     <div className='landing w-screen min-h-screen '>
 
@@ -33,7 +38,7 @@ function New() {
             <img src='/assets/istelogo.png' alt='lost' className='w-16 h-16 hover:scale-110 hover:skew-x-6'/>
         </div>
         <div className='flex items-center gap-[15px]  '>
-        <Link className='md:text-[20px] vmd:text-[20px] no-underline underline-offset-4 hover:underline  transition-all focus:text-indigo-600 text-white rounded-sm hover:bg-none bg-black px-[10px] py-[5px] '>Register</Link>
+        <Link to={"/register"} className='md:text-[20px] vmd:text-[20px] no-underline underline-offset-4 hover:underline  transition-all focus:text-indigo-600 text-white rounded-sm hover:bg-none bg-black px-[10px] py-[5px] '>Register</Link>
         {/* <Link className='md:text-[20px] vmd:text-[20px] no-underline underline-offset-4 hover:underline  transition-all focus:text-indigo-600'>FAQS</Link> */}
         </div>
     </nav>

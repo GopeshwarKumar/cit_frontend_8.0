@@ -88,5 +88,13 @@ a{
     background-color: #3cb371;
   }
 
+  /* .leaderboard tr:nth-child(2n) {
+    background:blue;
+  } */
+
+  /* .leaderboardText {
+    -webkit-text-stroke: 1px #d8e919;
+} */
+
 
 

@@ -47,10 +47,11 @@ function LandingPage() {
   }
 
 
+  const [event, setevent] = useState("")
   const [time, setTime] = useState({
-    days: 45,
-    hours: 45,
-    minutes: 45,
+    days: 10,
+    hours: 21,
+    minutes: 41,
     seconds: 10,
   });
   
@@ -58,29 +59,56 @@ function LandingPage() {
     const interval = setInterval(() => {
       setTime((prevTime) => {
         let { days, hours, minutes, seconds } = prevTime;
-  
-        if (seconds > 0) {
-          seconds--;
-        } else {
-          seconds = 59;
-          if (minutes > 0) {
-            minutes--;
-          } else {
-            minutes = 59;
-            if (hours > 0) {
-              hours--;
-            } else {
-              hours = 23;
-              if (days > 0) {
-                days--;
-              }
-            }
-          }
+
+        if(seconds<1){
+          seconds=59;
+          minutes--
         }
+        else{
+          seconds--
+        }
+        // if(minutes<59){
+        //   minutes=59
+        //   hours--
+        // }
+        // else{
+        //   minutes--
+        // }
+        if(minutes<1){
+          hours--
+          minutes=59
+        }
+        if(hours<1){
+          days--
+          hours=23
+        }
+        if(days<1 && hours<1 && minutes<1){
+          setevent("Event has Started")
+
+        }
+  
+        // if (seconds > 0) {
+        //   seconds--;
+        // } else {
+        //   seconds = 59;
+        //   if (minutes > 0) {
+        //     minutes--;
+        //   } else {
+        //     minutes = 59;
+        //     if (hours > 0) {
+        //       hours--;
+        //     } else {
+        //       hours = 23;
+        //       if (days > 0) {
+        //         days--;
+        //       }
+        //     }
+        //   }
+        // }
   
         return { days, hours, minutes, seconds };
       });
-    }, 1000);
+    },0.000000000000000000000001);
   
   
     return () => clearInterval(interval);
@@ -135,7 +163,7 @@ function LandingPage() {
     </div>
 
     {/* timer */}
-  <div className='text-black flex items-center gap-2 '>
+  <div className='text-black flex items-center gap-2 '>{event}<br/>
   <div className='border-[2px] sm:leading-[25px] leading-[15px]  text-center text-yellow-300 p-[10px] border-white hover:border-opacity-50 lg:text-[30px] sm:text-[18px] text-[10px] animate-pulse '>{time.days}<br/>Days</div>
      
   <div className='border-[2px] sm:leading-[25px] leading-[15px]  text-center text-yellow-300  p-[10px] border-white hover:border-opacity-50 lg:text-[30px] sm:text-[18px] text-[10px] animate-pulse '>{time.hours}<br/>Hours</div>

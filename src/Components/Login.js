@@ -18,6 +18,7 @@ function Login() {
     console.log(password);
     localStorage.setItem(`${email}`,email);
   }
+
   return (
     <>
     <div className='w-screen h-screen flex  gap-[1px] flex-wrap overflow-x-hidden overflow-y-hidden '>
