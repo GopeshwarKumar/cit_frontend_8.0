@@ -9,7 +9,7 @@ body{
   padding: 0;
   box-sizing: border-box;
   color: white;
-  background-color: #3cb371;
+  background-color: #0a0c1e;
   font-family: roboto flex;
   font-size: 25px;
 }
@@ -28,36 +28,10 @@ a{
   text-decoration-color: blue;
 } 
 
-/* .main{
-  background-image: url("/public/assets/bg.webp");
-} */
 .hoverabout:hover{
   box-shadow: 3px 3px 20px 2px aqua;
   transition: 0.3s;
 }
-/* .citword{
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  background-image: url("/public/assets/istelogo.png");
-} */
-/* .aboutpage{
-  background-image: url("/public/assets/bg.webp");
-  } */
-/* .sponserimage1{
-  aspect-ratio:1/3;
-  }
-  .sponserimage2{
-    aspect-ratio:3/2;
-    } */
-    /* .citword {
-      color: transparent;
-      -webkit-background-clip: text;
-      background-clip: text;
-      background-image: url("/public//assets/pexels-pixabay-158826.jpg");
-      background-size: cover; 
-    } */
-
 
     .citword {
       color: transparent;
@@ -67,34 +41,78 @@ a{
       background-size: cover; 
       animation: moveBackground 4s infinite alternate;
   }
-  
   @keyframes moveBackground {
+    0% {
+        background-position: 0% 50%;
+        /* opacity: 0.9; */
+    }
+    50% {
+        background-position: 20px 50%;
+        /* opacity: 1; */
+    }
+    100% {
+        background-position: 0% 50%;
+        /* opacity: 0.5; */
+    }
+}
+
+
+    .playernameleaderboard {
+      color:transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+      background-image: linear-gradient(#0f0f0f,red,pink);
+      animation: playernameBackground 2s infinite alternate;
+      transition: all;
+  }
+  
+  @keyframes playernameBackground {
       0% {
-          background-position: 0% 50%;
-          /* opacity: 0.9; */
+        background-image: linear-gradient(#31b36c,rgb(26, 207, 174),rgb(154, 43, 62));
       }
       50% {
-          background-position: 20px 50%;
-          /* opacity: 1; */
+        background-image: linear-gradient(#1b8ad9,rgb(178, 42, 209),rgb(88, 36, 210));
+      }
+      75%{
+        background-image: linear-gradient(#867e7e,rgb(211, 91, 91),rgb(85, 63, 151));
       }
       100% {
-          background-position: 0% 50%;
-          /* opacity: 0.5; */
+        background-image: linear-gradient(#56b736,red,rgb(221, 53, 81));
       }
   }
+ 
   
 
   .landing{
     background-color: #3cb371;
   }
-
-  /* .leaderboard tr:nth-child(2n) {
-    background:blue;
-  } */
-
-  /* .leaderboardText {
-    -webkit-text-stroke: 1px #d8e919;
-} */
+  .tableee::-webkit-scrollbar {
+    display: none;
+  }
 
 
+  .playwrite-vn {
+    font-family: 'Playwrite VN', serif;
+    font-weight: 400; /* Or any weight you need */
+    font-style: normal;
+  }
 
+  .button {
+    position: relative;
+    overflow: hidden; /* Hide the background moving outside the button */
+  }
+
+  .button::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #48bb78; /* Set your desired background color */
+    transition: top 0.3s ease;
+  }
+
+  .button:hover::before {
+    top: 0;
+  }

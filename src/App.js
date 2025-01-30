@@ -1,14 +1,16 @@
 import React from 'react'
-import LeaderBoard from './Components/LeaderBoard'
+import PageRoutes from './AllPageRoutes/PageRoutes'
+import Quest from './Components/Quest'
 
+// pdjx bzqm pdij whae
 function App() {
-  return (
+  // localStorage.clear()
+   return (
     <>
-  <LeaderBoard/>
+    {/* <PageRoutes/> */}
+    <Quest/>
     </>
   )
 }
 
 export default App
-
-// sm:w-[350px] mb:w-[300px]
