@@ -14,7 +14,7 @@ function Register() {
   const registerUser=async (e)=>{
     e.preventDefault();
 
-    axios.post("http://localhost:5000/create",{candidatename,email,pass}).then(res =>{
+    axios.post("https://cit-backend-8-0.onrender.com/create",{candidatename,email,pass}).then(res =>{
       console.log(res)
       
       if(res.status===200 && res.data.message==="Registered successfully"){
