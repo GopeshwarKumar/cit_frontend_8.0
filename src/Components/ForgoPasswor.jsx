@@ -12,7 +12,7 @@ function Login() {
 
   const LoginUser=(e)=>{
     e.preventDefault();
-    axios.post("http://localhost:5000/forgotpassword",{email}).then(res =>{
+    axios.post("https://cit-backend-8-0.onrender.com/forgotpassword",{email}).then(res =>{
         console.log(res)
       setloginerror(res.data.message)
       if(res.status===200 && res.data.message==="otp sent to email"){
