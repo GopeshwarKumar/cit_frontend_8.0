@@ -45,7 +45,7 @@ function Quest(props) {
     }
     let finalScore=score
     console.log(finalScore)
-    axios.post("http://localhost:5000/test",{Answer1,Answer2,Answer3,Answer4,Answer5,Answer6,Answer7,Answer8,finalScore,testemail}).then(res =>{
+    axios.post("https://cit-backend-8-0.onrender.com/test",{Answer1,Answer2,Answer3,Answer4,Answer5,Answer6,Answer7,Answer8,finalScore,testemail}).then(res =>{
       // console.log(res)
       setformloader("wait answer saving")
     }).catch(er =>{
