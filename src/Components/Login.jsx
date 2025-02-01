@@ -15,7 +15,7 @@ function Login() {
 
   const LoginUser=(e)=>{
     e.preventDefault();
-    axios.post("http://localhost:5000/login",{email,password}).then(res =>{
+    axios.post("https://cit-backend-8-0.onrender.com/login",{email,password}).then(res =>{
       // loginAuth.setuseremail(res.data.email)
       // loginAuth.setusername(res.data.name)
       // console.log(res.data.email)
