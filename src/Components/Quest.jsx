@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import Loader from './Loader'
+import { useNavigate } from 'react-router-dom'
 
 function Quest(props) {
 
@@ -12,12 +14,18 @@ function Quest(props) {
   const [Answer7, setAnswer7] = useState()
   const [Answer8, setAnswer8] = useState()
   const [testemail, settestemail] = useState()
-  const [formloader, setformloader] = useState("")
+  const [loader, setloader] = useState(false)
   // const [Answer9, setAnswer9] = useState()
+
+  const navigate=useNavigate()
 
 
   const GetAnswer=(e)=>{
     e.preventDefault()
+    if(!testemail){
+      alert('Please enter your email')
+    }
+    setloader(true)
     let score=0
     if(Answer1==="6 hours"){
       score=score+4
@@ -44,14 +52,17 @@ function Quest(props) {
       score=score+4
     }
     let finalScore=score
-    console.log(finalScore)
-    axios.post("http://localhost:5000/test",{Answer1,Answer2,Answer3,Answer4,Answer5,Answer6,Answer7,Answer8,finalScore,testemail}).then(res =>{
+    // console.log(finalScore)
+    axios.post("https://cit-backend-8-0.onrender.com/test",{Answer1,Answer2,Answer3,Answer4,Answer5,Answer6,Answer7,Answer8,finalScore,testemail}).then(res =>{
+      if(res.status===200 & res.data.message=== "Answers saved successfully"){
+        alert('Answers saved successfully')
+        navigate("/home")
+      }
       // console.log(res)
-      setformloader("wait answer saving")
     }).catch(er =>{
       console.log(er)
     }).finally(a =>{
-      setformloader("")
+      setloader(false)
     })
 // console.log(Answer1)
 // console.log(Answer2)
@@ -580,11 +591,9 @@ function Quest(props) {
 
     </div>
     <div className='w-screen flex items-center justify-center mt-[5%]'>
-    <button className='bg-yellow-300 px-[10px] py-[5px] text-black font-bold rounded-md transition-all active:text-green-500'>Submit</button>
+    {loader === false ? <button className='bg-yellow-300 px-[10px] py-[5px] text-black font-bold rounded-md transition-all active:text-green-500'>Submit</button> :(<Loader></Loader>)}
     </div>
-    </form>
-    {formloader}
-    
+    </form>    
 
 </div>
     </>

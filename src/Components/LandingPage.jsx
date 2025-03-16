@@ -8,6 +8,7 @@ import { Link, useNavigate} from 'react-router-dom';
 
 function LandingPage() {
   const navigate=useNavigate()
+  
   useEffect(()=>{
     const token=localStorage.getItem("token")
   if(!token){
@@ -130,7 +131,7 @@ function LandingPage() {
           <motion.a href={"/faqs"} initial={{opacity:0}} whileInView={{opacity:1}} transition={{duration:2}} className='vmd:hidden sm:block font-bold no-underline py-[5px] px-[10px] text-[15px] 2xl:text-[15px] lg:text-[12px] md:text-[12px] sm:text-[12px] text-white hover:text-blue-700 hover:underline underline-offset-8 transition-all '>FAQS</motion.a>
           <motion.a href={"/leaderboard"} initial={{opacity:0}} whileInView={{opacity:1}} transition={{duration:2}} className='vmd:hidden sm:block font-bold no-underline py-[5px] px-[10px] text-[15px] 2xl:text-[15px] lg:text-[12px] md:text-[12px] sm:text-[12px] text-white hover:text-blue-700 hover:underline underline-offset-8 transition-all '>LeaderBoard</motion.a>
           <motion.a href={"/profile"} initial={{opacity:0}} whileInView={{opacity:1}} transition={{duration:2}} className='vmd:hidden sm:block font-bold no-underline py-[5px] px-[10px] text-[15px] 2xl:text-[15px] lg:text-[12px] md:text-[12px] sm:text-[12px] text-white hover:text-blue-700 hover:underline underline-offset-8 transition-all '>Profile</motion.a>
-          {open===true ? <GiCrossMark onClick={closehamburgerMenu} className='m-4 cursor-pointer'/>  : <div onClick={openhamburgerMenu} className='vmd:block sm:hidden cursor-pointer duration-200 mb:mt-4 vmd:mt-2'>
+          {open===true ? <GiCrossMark onClick={closehamburgerMenu} className='m-4 cursor-pointer text-red-500'/>  : <div onClick={openhamburgerMenu} className='vmd:block sm:hidden cursor-pointer duration-200 mb:mt-4 vmd:mt-2'>
             <div className='w-6 h-1 bg-yellow-300 m-[2px]'></div>
             <div className='w-6 h-1 bg-white m-[2px]'></div>
             <div className='w-6 h-1 bg-yellow-300 m-[2px]'></div>
