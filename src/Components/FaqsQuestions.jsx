@@ -26,42 +26,45 @@ function FaqsQuestions() {
     <Navbar/>
     <h1 className='mt-[5%] text-center text-wrap 2xl:text-[120px] xl:text-[110px] lg:text-[90px] md:text-[80px] sm:text-[70px] text-[46px] leading-[70px] font-extrabold'>Frequently Ask Questions</h1>
 
-<div className='min-h-screen flex flex-col gap-[20px] mt-[10%] '>
+<div className='min-h-screen flex flex-col gap-[5vh] mt-[10%] '>
 
 {/* Question 1 */}
-    <div className='min-h-[7vh] hover:bg-gradient-to-tr from-slate-900 to-indigo-500 transition-all py-4'>
-    <div className="flex items-center justify-between 2xl:gap-[5vw] xl:gap-[5vw] lg:gap-[5vw] md:gap-[5vw] sm:gap-[5vw] gap-[5vw] 2xl:px-[15] xl:px-[20vw] lg:px-[20vw] md:px-[15vw] sm:px-[15vw] px-[5vw]">
-       <div className='flex flex-col'>
-       <h1 className='text-yellow-400 2xl:text-[35px] xl:text-[35px] lg:text-[35px] md:text-[35px] sm:text-[35px] text-[20px] leading-[20px]'>What is CIT 7.0</h1>
-        {ansactive && 
-        <p className='2xl:text-[25px] xl:text-[25px] lg:text-[25px] md:text-[20px] sm:text-[20px] text-[17px]'><mark>Cit 7.0</mark> is an online quiz test which has multiple rounds to go in final rounds</p>}
+    <div>
+        <div className="flex items-center justify-between gap-[5vw] 2xl:px-[15vw] xl:px-[20vw] lg:px-[20vw] md:px-[15vw] sm:px-[15vw] px-[5vw]">
+       <div onClick={showanswer1} className='w-screen flex items-center justify-between cursor-pointer'>
+       <h1 className='text-yellow-400 sm:text-[25px] text-[20px] leading-[20px]'><mark className='p-1 rounded-md font-bold'>1.</mark> What is CIT 7.0 ?</h1>
+       <PiPlusBold onClick={showanswer1} className='sm:text-[40px] text-[23px]'/>
        </div>
-        <PiPlusBold onClick={showanswer1} className='2xl:text-[60px] xl:text-[60px] lg:text-[60px] md:text-[60px] sm:text-[60px] text-[30px]'/>
+        
         </div>
+        {ansactive && 
+        <p className='mt-[2%] sm:text-[20px] text-[15px] 2xl:px-[15vw] xl:px-[20vw] lg:px-[20vw] md:px-[15vw] sm:px-[15vw] px-[5vw]'><mark className='p-1 rounded-md font-bold'>Cit 7.0</mark> is an online quiz test which has multiple rounds to go in final rounds.</p>}
     </div>
 
     {/* Question 2 */}
-    <div className='min-h-[7vh] hover:bg-gradient-to-tr from-cyan-500 to-indigo-500 transition-all py-4'> 
-    <div className="flex items-center justify-between 2xl:gap-[5vw] xl:gap-[5vw] lg:gap-[5vw] md:gap-[5vw] sm:gap-[5vw] gap-[5vw] 2xl:px-[15] xl:px-[20vw] lg:px-[20vw] md:px-[15vw] sm:px-[15vw] px-[5vw]">
-       <div className='flex flex-col'>
-       <h1 className='text-yellow-400 2xl:text-[35px] xl:text-[35px] lg:text-[35px] md:text-[35px] sm:text-[35px] text-[20px] leading-[20px] '>When does it happen ?</h1>
-        {ansactive2 && 
-        <p className='2xl:text-[25px] xl:text-[25px] lg:text-[25px] md:text-[20px] sm:text-[20px] text-[17px]'>It's Frequency is <mark>one</mark> while a year and it happens in Nov - Dec</p>}
+    <div>
+        <div className="flex items-center justify-between gap-[5vw] 2xl:px-[15vw] xl:px-[20vw] lg:px-[20vw] md:px-[15vw] sm:px-[15vw] px-[5vw]">
+       <div onClick={showanswer2} className='w-screen flex items-center justify-between cursor-pointer'>
+       <h1 className='text-yellow-400 sm:text-[25px] text-[20px] leading-[20px]'><mark className='p-1 rounded-md font-bold'>2.</mark> When does it happen ?</h1>
+       <PiPlusBold onClick={showanswer2} className='sm:text-[40px] text-[23px]'/>
        </div>
-        <PiPlusBold onClick={showanswer2} className='2xl:text-[60px] xl:text-[60px] lg:text-[60px] md:text-[60px] sm:text-[60px] text-[30px] focus:text-red-500'/>
+        
         </div>
+        {ansactive2 && 
+        <p className='mt-[2%] 2xl:text-[25px] xl:text-[25px] lg:text-[25px] md:text-[20px] sm:text-[20px] text-[17px] 2xl:px-[15vw] xl:px-[20vw] lg:px-[20vw] md:px-[15vw] sm:px-[15vw] px-[5vw]'>It's Frequency is <mark className='p-1 rounded-md font-bold'>one</mark> while a year and it happens in Nov - Dec.</p>}
     </div>
 
     {/* Question 3 */}
-    <div className='min-h-[7vh] hover:bg-gradient-to-tr from-slate-900 to-indigo-500 transition-all py-4'>
-    <div className="flex items-center justify-between 2xl:gap-[5vw] xl:gap-[5vw] lg:gap-[5vw] md:gap-[5vw] sm:gap-[5vw] gap-[5vw] 2xl:px-[15] xl:px-[20vw] lg:px-[20vw] md:px-[15vw] sm:px-[15vw] px-[5vw]">
-       <div className='flex flex-col'>
-       <h1 className='text-yellow-400 2xl:text-[35px] xl:text-[35px] lg:text-[35px] md:text-[35px] sm:text-[35px] text-[20px] leading-[20px] '>Who conducts it ?</h1>
-        {ansactive3 && 
-        <p className='2xl:text-[25px] xl:text-[25px] lg:text-[25px] md:text-[20px] sm:text-[20px] text-[17px]'>It's Frequency is year and it happens in Nov - Dec</p>}
+    <div>
+        <div className="flex items-center justify-between gap-[5vw] 2xl:px-[15vw] xl:px-[20vw] lg:px-[20vw] md:px-[15vw] sm:px-[15vw] px-[5vw]">
+       <div onClick={showanswer3} className='w-screen flex items-center justify-between cursor-pointer'>
+       <h1 className='text-yellow-400 sm:text-[25px] text-[20px] leading-[20px]'><mark className='p-1 rounded-md font-bold'>3.</mark> Who conducts it ?</h1>
+       <PiPlusBold onClick={showanswer3} className='sm:text-[40px] text-[23px]'/>
        </div>
-        <PiPlusBold onClick={showanswer3} className='2xl:text-[60px] xl:text-[60px] lg:text-[60px] md:text-[60px] sm:text-[60px] text-[30px] focus:text-red-500'/>
+        
         </div>
+        {ansactive3 && 
+        <p className='mt-[2%] 2xl:text-[25px] xl:text-[25px] lg:text-[25px] md:text-[20px] sm:text-[20px] text-[17px] 2xl:px-[15vw] xl:px-[20vw] lg:px-[20vw] md:px-[15vw] sm:px-[15vw] px-[5vw]'>It's Frequency is It is conducted by <mark className='p-1 rounded-md font-bold'>ISTE</mark> .</p>}
     </div>
 
     {/* Question 4 */}

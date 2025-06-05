@@ -1,6 +1,9 @@
 import React, { lazy } from 'react'
-import { Routes ,Route} from 'react-router-dom'
+import { Routes ,Route, useNavigate} from 'react-router-dom'
 import NewPassword from '../Components/NewPassword'
+import { useEffect } from 'react'
+
+const AdminLogin=lazy(()=>import('../Admin/AdminLogin'))
 
 const Login=lazy(()=>import("../Components/Login"))
 const LandingPage=lazy(()=>import("../Components/LandingPage"))
@@ -13,20 +16,32 @@ const FaqsQuestions=lazy(()=>import("../Components/FaqsQuestions"))
 const ForgoPassword=lazy(()=>import("../Components/ForgoPasswor"))
 
 function PageRoutes() {
+  const navigate=useNavigate()
+        useEffect(()=>{
+          const token=localStorage.getItem("token")
+        if(!token){
+          navigate("/login")
+        }
+        },[])
   return (
    <>
    <Routes>
+    <Route path="/adminloginpage" element={<AdminLogin/>} />
+
+
     <Route path="/" element={<Register />} />
     <Route path="/register" element={<Register/>} />
     <Route path="/login" element={<Login/>} />
-    <Route path="/startquiz" element={<Quest/>} />
-    <Route path="/home" element={<LandingPage/>} />
-    <Route path="/faqs" element={<FaqsQuestions/>} />
-    <Route path="/about" element={<About/>} />
-    <Route path="/leaderboard" element={<LeaderBoard/>} />
-    <Route path="/profile" element={<Profile/>} />
     <Route path="/forgetpassword" element={<ForgoPassword/>} />
     <Route path="/newpassword" element={<NewPassword/>} />
+
+    
+    <Route path="/startquiz" element={localStorage.getItem("token") ? <Quest/>:<Login/>} />
+    <Route path="/home" element={localStorage.getItem("token") ?<LandingPage/> : <Login/>} />
+    <Route path="/faqs" element={localStorage.getItem("token") ? <FaqsQuestions/>:<Login/>} />
+    <Route path="/about" element={localStorage.getItem("token") ? <About/>:<Login/>} />
+    <Route path="/leaderboard" element={localStorage.getItem("token") ? <LeaderBoard/>:<Login/>} />
+    <Route path="/profile" element={localStorage.getItem("token") ? <Profile/>:<Login/>} />
    </Routes>
    </>
   )

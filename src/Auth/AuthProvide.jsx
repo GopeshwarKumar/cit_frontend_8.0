@@ -5,10 +5,10 @@ export const AuthenticationContext = createContext();
 
 function AuthProvide({ children }) {
 
-  const [username, setusername] = useState()
-  const [useremail, setuseremail] = useState()
+  const [UserName, setUserName] = useState()
+  const [UserEmail, setUserEmail] = useState()
   return (
-    <AuthenticationContext.Provider value={{useremail, setuseremail,username, setusername}}>
+    <AuthenticationContext.Provider value={{UserEmail, setUserName,UserName, setUserEmail}}>
       {children}
     </AuthenticationContext.Provider>
   );

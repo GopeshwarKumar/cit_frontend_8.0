@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import Loader from './Loader';
 import {toast , ToastContainer} from 'react-toastify'
+import Loader from '../Components/Loader'
 
-function Register() {
+function AdminRegister() {
 
   const navigate=useNavigate()
-  const [candidatename, setcandidatename] = useState();
-  const [email, setemail] = useState();
-  const [pass, setpass] = useState();
+  const [adminname, setadminname] = useState();
+  const [adminemail, setadminemail] = useState();
+  const [adminpassword, setadminpassword] = useState();
   const [message, setmessage] = useState();
   const [loader, setloader] = useState(false)
 
@@ -17,7 +17,7 @@ function Register() {
     e.preventDefault();
     setloader(true)
     // http://localhost:5000
-    axios.post("http://localhost:5000/create",{candidatename,email,pass}).then(res =>{
+    axios.post("http://localhost:5000/admincreate",{adminname,adminemail,adminpassword}).then(res =>{
       
       setmessage(res.data.message)
       if(res.status===200 && res.data.message==="Registered successfully"){
@@ -44,26 +44,27 @@ function Register() {
     items-center justify-center gap-[20px] p-5 rounded-t-md vmd:bg-slate-800 shadow-2xl shadow-slate-800'>
       
     <div>
-      <h1 className='sm:text-[40px] text-nowrap px-4 '>Register Here</h1>
-    <h1 className='text-center italic hover:tracking-wider duration-200'>CIT 7.0</h1>
+      <h1 className='sm:text-[40px] text-nowrap px-4 '>Admin Register</h1>
+    <h1 className='text-center italic hover:tracking-wider duration-200'>CIT 2.0</h1>
     </div>
 
     <form action='/create' method='post' onSubmit={registerUser} className='flex flex-col items-center justify-center gap-[10px] '>
-      <input type='text' required placeholder='Enter Your Name' onChange={(e)=>{setcandidatename(e.target.value)}} className='outline-none rounded py-[5px] px-[10px] font-sans lg:text-[20px] text-[16px] text-black  placeholder:text-slate-600 placeholder:hover:tracking-tighter placeholder:duration-200 '/>
-      <input type='email' required placeholder='Enter E-mail' onChange={(e)=>{setemail(e.target.value)
+      <input type='text' required placeholder='Enter Your Name' onChange={(e)=>{setadminname(e.target.value)}} className='outline-none rounded py-[5px] px-[10px] font-sans lg:text-[20px] text-[16px] text-black  placeholder:text-slate-600 placeholder:hover:tracking-tighter placeholder:duration-200 '/>
+      <input type='email' required placeholder='Enter E-mail' onChange={(e)=>{setadminemail(e.target.value)
       }} className='outline-none rounded py-[5px] px-[10px] font-sans lg:text-[20px] text-[16px] text-black  placeholder:text-slate-600 placeholder:hover:tracking-tighter placeholder:duration-200 '/>
-      <input type='password' required placeholder='Enter Your Pass' onChange={(e)=>{setpass(e.target.value)}} className='outline-none rounded py-[5px] px-[10px] font-sans lg:text-[20px] text-[16px] text-black  placeholder:text-slate-600 placeholder:hover:tracking-tighter placeholder:duration-200 '/>
+      <input type='password' required placeholder='Enter Your Pass' onChange={(e)=>{setadminpassword(e.target.value)}} className='outline-none rounded py-[5px] px-[10px] font-sans lg:text-[20px] text-[16px] text-black  placeholder:text-slate-600 placeholder:hover:tracking-tighter placeholder:duration-200 '/>
 
       <div className='w-full flex items-center justify-center gap-[10px] '>
       
       {loader ===false ?<button className='w-[80%] sm:text-[20px] text-[16px] py-[1px] px-[15px] rounded-md hover:opacity-60 bg-blue-500 cursor-pointer'>Register</button> : (<Loader></Loader>)}
       </div>
-      <Link to={"/login"} className='w-[80%] no-underline text-white text-center sm:text-[20px] text-[16px] py-[1px] px-[15px] rounded-md hover:opacity-60 bg-rose-500 cursor-pointer'>Login</Link>
+      <Link to={"/adminloginpage"} className='w-[80%] no-underline text-white text-center sm:text-[20px] text-[16px] py-[1px] px-[15px] rounded-md hover:opacity-60 bg-rose-500 cursor-pointer'>Login</Link>
     </form>
-    {message==="Registered successfully" ? (<p className='text-green-500 font-bold'>{message}</p>) :<p className='text-red-500 font-bold'>{message}</p>}
+    {message==="Admin Registered successfully" ? (<p className='text-green-500 font-bold text-[15px]'>{message}</p>) :<p className='text-red-500 font-bold text-[15px]'>{message}</p>}
     </div>
     </div>
     </>
   )
 }
-export default Register
+
+export default AdminRegister
