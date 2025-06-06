@@ -9,7 +9,7 @@ function AllQuestion() {
     const [questionlist, setquestionlist] = useState([])
     const [deletequestion, setdeletequestion] = useState()
     useEffect(()=>{
-        axios.get('http://localhost:5000/getandshowquestion').then(res =>{
+        axios.get(`${process.env.REACT_APP_SECRET_KEY}/getandshowquestion`).then(res =>{
             setquestionlist(res.data)
         }).catch(er=>{
 
@@ -17,11 +17,11 @@ function AllQuestion() {
     })
   return (
     <>
-    <ToastContainer/>
+    <ToastContainer className={`text-[15px]`}/>
     <h1 className='text-center font-bold'>All Questions List</h1>
     <div>
         {questionlist.map((e,x)=>{
-            return <div key={x} className='bg-slate-800 mt-3 p-5'>
+            return <div key={x} className='bg-slate-800 sm:text-[20px] vmd:text-[16px] mt-3 p-5'>
                 <p>{e.question1}</p>
                 <p>{e.option1}</p>
                 <p>{e.option2}</p>
@@ -30,7 +30,7 @@ function AllQuestion() {
                 <button onClick={async(w)=>{
                 console.log(e.question1)
                 setdeletequestion(e.question1)
-                axios.post('http://localhost:5000/deletequestion',{deletequestion}).then(res=>{
+                axios.post(`${process.env.REACT_APP_SECRET_KEY}/deletequestion`,{deletequestion}).then(res=>{
                     // console.log(res)
                     if(res.data.status===200){
                         toast.success(res.data.message)

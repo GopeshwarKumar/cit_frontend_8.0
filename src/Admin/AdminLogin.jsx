@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 // import Loader from './Loader';
 import {toast , ToastContainer} from 'react-toastify'
 import Loader from '../Components/Loader';
+import { FaLocationArrow } from 'react-icons/fa';
 // import { useContext } from 'react';
 // import { AuthenticationContext } from '../Auth/AuthProvide';
 
@@ -22,17 +23,19 @@ function AdminLogin() {
     e.preventDefault()
     setloader(true)
     
-    axios.post("http://localhost:5000/adminlogin",{adminemail,adminpassword}).then(res =>{
+    axios.post(`${process.env.REACT_APP_SECRET_KEY}/adminlogin`,{adminemail,adminpassword}).then(res =>{
       setloginerror(res.data.message)
-      toast.success(res.data.message,{})
-      if(res.status===200 && res.data.message==="admin found"){
-        // localStorage.setItem("name",res.data.name)
-        // localStorage.setItem("email",res.data.email)
-        // localStorage.setItem("token",res.data.token)
-        // navigate('/home')
+      console.log(res)
+
+      res.data.message==='Admin LoggedIn' ? toast.success(res.data.message,{}) : toast.warn(res.data.message,{})
+      if(res.status===200 && res.data.message==='Admin LoggedIn'){
+        localStorage.setItem("Adminname",res.data.AdminName)
+        localStorage.setItem("Adminemail",res.data.AdminEmail)
+        localStorage.setItem("Admintoken",res.data.admintoken)
+        navigate('/AdminPanel')
       }
     }).catch(err =>{
-      // console.log(err)
+      alert('Error caught wait...')
     }).finally(e =>{
       setloader(false)
     })
@@ -40,7 +43,7 @@ function AdminLogin() {
 
   return (
     <>
-    <ToastContainer/>
+    <ToastContainer className={`text-[14px]`}/>
     <div className='w-screen h-screen bg-slate-900 flex flex-row items-center justify-center gap-[5vw] overflow-x-hidden '>
 
     <div className='flex items-center justify-center'>
@@ -61,7 +64,10 @@ function AdminLogin() {
         {/* <input type='checkbox' className='right-4 relative'/> */}
       </div>
       <div className='w-full flex items-center justify-center gap-[20px]'>
-      {loader === false ? <button className='w-[80%] sm:text-[20px] text-[16px] py-[1px] px-[15px] rounded-md hover:opacity-60 bg-blue-500 '>Login</button> :(<Loader></Loader>)}
+        <div className='w-full flex items-center justify-center gap-[10px] '>
+                      <Link to={"/AdminRegister"} className='w-[80%] flex items-center gap-1 sm:text-[17px] no-underline text-white text-[14px] py-[1px] px-[15px] rounded-md hover:opacity-60 bg-blue-500 cursor-pointer'>Register<FaLocationArrow /></Link>
+                      {loader === false ? <button className='w-[80%] no-underline text-white text-center sm:text-[17px] text-[14px] py-[1px] px-[15px] rounded-md hover:opacity-60 bg-rose-500 cursor-pointer'>Login</button> :(<Loader></Loader>)}
+                      </div>
       </div>
     </form>
     

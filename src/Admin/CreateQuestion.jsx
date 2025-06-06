@@ -17,7 +17,7 @@ function CreateQuestion() {
         e.preventDefault()
         setactive(true)
 
-        axios.post('http://localhost:5000/createquestion',{question1,option1,option2,option3,option4,answer}).then(res=>{
+        axios.post(`${process.env.REACT_APP_SECRET_KEY}/createquestion`,{question1,option1,option2,option3,option4,answer}).then(res=>{
             console.log(res)
             setmessage(res.data.message)
         }).catch(err=>{
@@ -42,7 +42,7 @@ function CreateQuestion() {
   <div>
     <label className="block text-yellow-200 mb-1 font-medium">Question</label>
     <textarea
-      value={question1}
+      value={question1} required
       rows={3}
       typeof="text"
       placeholder="Enter the question"
@@ -56,37 +56,37 @@ function CreateQuestion() {
     <div>
       <label className="block text-yellow-200 mb-1 font-medium">Option A</label>
       <input
-        value={option1}
+        value={option1} required
         onChange={(e) => setoption1(e.target.value)}
         placeholder="Option A"
-        className="w-full text-black rounded-md p-2 focus:outline-none border-b-4 border-transparent focus:border-yellow-300 transition-all"
+        className="w-full text-black sm:text-[20px] vmd:text-[16px] rounded-md px-2 focus:outline-none border-b-4 border-transparent focus:border-yellow-300 transition-all"
       />
     </div>
     <div>
       <label className="block text-yellow-200 mb-1 font-medium">Option B</label>
       <input
-        value={option2}
+        value={option2} required
         onChange={(e) => setoption2(e.target.value)}
         placeholder="Option B"
-        className="w-full text-black rounded-md p-2 focus:outline-none border-b-4 border-transparent focus:border-yellow-300 transition-all"
+        className="w-full text-black sm:text-[20px] vmd:text-[16px] rounded-md px-2 focus:outline-none border-b-4 border-transparent focus:border-yellow-300 transition-all"
       />
     </div>
     <div>
       <label className="block text-yellow-200 mb-1 font-medium">Option C</label>
       <input
-        value={option3}
+        value={option3} required
         onChange={(e) => setoption3(e.target.value)}
         placeholder="Option C"
-        className="w-full text-black rounded-md p-2 focus:outline-none border-b-4 border-transparent focus:border-yellow-300 transition-all"
+        className="w-full text-black sm:text-[20px] vmd:text-[16px] rounded-md px-2 focus:outline-none border-b-4 border-transparent focus:border-yellow-300 transition-all"
       />
     </div>
     <div>
       <label className="block text-yellow-200 mb-1 font-medium">Option D</label>
       <input
-        value={option4}
+        value={option4} required
         onChange={(e) => setoption4(e.target.value)}
         placeholder="Option D"
-        className="w-full text-black rounded-md p-2 focus:outline-none border-b-4 border-transparent focus:border-yellow-300 transition-all"
+        className="w-full text-black sm:text-[20px] vmd:text-[16px] rounded-md px-2 focus:outline-none border-b-4 border-transparent focus:border-yellow-300 transition-all"
       />
     </div>
   </div>
@@ -95,10 +95,10 @@ function CreateQuestion() {
   <div>
     <label className="block text-yellow-200 mb-1 font-medium">Correct Answer</label>
     <input
-      value={answer}
+      value={answer} required
       onChange={(e) => setanswer(e.target.value)}
       placeholder="Type the correct option (e.g., Option A)"
-      className="w-full text-black rounded-md p-2 focus:outline-none border-b-4 border-transparent focus:border-green-400 transition-all"
+      className="w-full text-green-500 sm:text-[20px] vmd:text-[16px] rounded-md px-2 focus:outline-none border-b-4 border-transparent focus:border-green-400 transition-all"
     />
   </div>
 
@@ -108,7 +108,7 @@ function CreateQuestion() {
       <input
         type="submit"
         value="Save Question"
-        className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-md cursor-pointer transition duration-200"
+        className="bg-green-500 hover:bg-green-600 text-white font-bold sm:text-[20px] vmd:text-[14px] py-2 px-6 rounded-md cursor-pointer transition duration-200"
       />
     ) : (
       <Loader />
@@ -117,7 +117,7 @@ function CreateQuestion() {
 
   {/* Message */}
   {message && (
-    <p className={`text-center font-semibold text-[18px] ${message === 'Question saved ...' ? 'text-green-400' : 'text-red-400'}`}>
+    <p className={`text-center font-semibold text-[16px] ${message === 'Question saved ...' ? 'text-green-400' : 'text-red-400'}`}>
       {message}
     </p>
   )}

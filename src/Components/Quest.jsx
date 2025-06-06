@@ -10,9 +10,9 @@ function Quest() {
 
   const [active, setactive] = useState(false)
   const [questionarray, setquestionarray] = useState([])
-  
+  console.log(questionarray)
   useEffect(()=>{
-    axios.get('http://localhost:5000/getandshowquestion').then(res =>{
+    axios.get(`${process.env.REACT_APP_SECRET_KEY}/getandshowquestion`).then(res =>{
       // console.log(res)
       setquestionarray(res.data)
     }).catch(Err=>{
@@ -56,8 +56,8 @@ function Quest() {
   return (
     <>
     <ToastContainer/>
-    <div className='flex items-center justify-end gap-3 p-4 sticky top-0'>
-        <PiTimerLight className={`font-extrabold text-[45px] text-blue-600  `}/>
+    <div className='flex items-center justify-end gap-3 p-4 sticky top-0  px-[5%]'>
+        <PiTimerLight className={`font-extrabold text-[45px] text-blue-600 `}/>
         <p>08:00</p>
     </div>
     <form onSubmit={handleSubmit}>

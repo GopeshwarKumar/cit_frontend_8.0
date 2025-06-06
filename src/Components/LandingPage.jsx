@@ -13,7 +13,7 @@ function LandingPage() {
     const [message, setmessage] = useState()
   
         useEffect(()=>{
-          axios.post('http://localhost:5000/checkuser',{userEmail}).then(res =>{
+          axios.post(`${process.env.REACT_APP_SECRET_KEY}/checkuser`,{userEmail}).then(res =>{
             console.log(res)
             console.log(res.data.message)
             setmessage(res.data.message)

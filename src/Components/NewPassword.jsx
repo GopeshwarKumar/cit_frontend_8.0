@@ -17,7 +17,7 @@ function NewPassword() {
     e.preventDefault()
     setloader(true)
 
-    axios.post("https://cit-backend-8-0.onrender.com/newpassword",{newusepassword,otp}).then(res =>{
+    axios.post(`${process.env.REACT_APP_SECRET_KEY}/newpassword`,{newusepassword,otp}).then(res =>{
         console.log(res)
       setloginerror(res.data.message)
       if(res.status===200 && res.data.message==="password changed successfully"){

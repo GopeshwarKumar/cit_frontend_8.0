@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { PiPlusBold } from 'react-icons/pi';
+import { ImCross } from "react-icons/im";
+import { IoIosArrowDropdownCircle } from "react-icons/io";
 import Navbar from './Navbar';
 
 function FaqsQuestions() {
@@ -22,18 +23,20 @@ function FaqsQuestions() {
   return (
     <>
     {/* [url("/public/assets/citbackground.jpg")] */}
-    <div className='bg-slate-800'>
+    <div className='bg-slate-900'>
     <Navbar/>
     <h1 className='mt-[5%] text-center text-wrap 2xl:text-[120px] xl:text-[110px] lg:text-[90px] md:text-[80px] sm:text-[70px] text-[46px] leading-[70px] font-extrabold'>Frequently Ask Questions</h1>
 
 <div className='min-h-screen flex flex-col gap-[5vh] mt-[10%] '>
 
 {/* Question 1 */}
-    <div>
+    <div className='shadow-2xl p-5'>
         <div className="flex items-center justify-between gap-[5vw] 2xl:px-[15vw] xl:px-[20vw] lg:px-[20vw] md:px-[15vw] sm:px-[15vw] px-[5vw]">
        <div onClick={showanswer1} className='w-screen flex items-center justify-between cursor-pointer'>
        <h1 className='text-yellow-400 sm:text-[25px] text-[20px] leading-[20px]'><mark className='p-1 rounded-md font-bold'>1.</mark> What is CIT 7.0 ?</h1>
-       <PiPlusBold onClick={showanswer1} className='sm:text-[40px] text-[23px]'/>
+       
+       {ansactive ===false?<IoIosArrowDropdownCircle onClick={showanswer1} className='sm:text-[40px] text-[23px] font-extrabold'/> :
+        <ImCross className='sm:text-[30px] text-[23px] text-red-600'/>}
        </div>
         
         </div>
@@ -42,11 +45,12 @@ function FaqsQuestions() {
     </div>
 
     {/* Question 2 */}
-    <div>
+    <div className='shadow-2xl p-5'>
         <div className="flex items-center justify-between gap-[5vw] 2xl:px-[15vw] xl:px-[20vw] lg:px-[20vw] md:px-[15vw] sm:px-[15vw] px-[5vw]">
        <div onClick={showanswer2} className='w-screen flex items-center justify-between cursor-pointer'>
        <h1 className='text-yellow-400 sm:text-[25px] text-[20px] leading-[20px]'><mark className='p-1 rounded-md font-bold'>2.</mark> When does it happen ?</h1>
-       <PiPlusBold onClick={showanswer2} className='sm:text-[40px] text-[23px]'/>
+       {ansactive2 ===false?<IoIosArrowDropdownCircle onClick={showanswer2} className='sm:text-[40px] text-[23px] font-extrabold'/> :
+        <ImCross className='sm:text-[30px] text-[23px] text-red-600'/>}
        </div>
         
         </div>
@@ -55,11 +59,12 @@ function FaqsQuestions() {
     </div>
 
     {/* Question 3 */}
-    <div>
+    <div className='shadow-2xl p-5'>
         <div className="flex items-center justify-between gap-[5vw] 2xl:px-[15vw] xl:px-[20vw] lg:px-[20vw] md:px-[15vw] sm:px-[15vw] px-[5vw]">
        <div onClick={showanswer3} className='w-screen flex items-center justify-between cursor-pointer'>
        <h1 className='text-yellow-400 sm:text-[25px] text-[20px] leading-[20px]'><mark className='p-1 rounded-md font-bold'>3.</mark> Who conducts it ?</h1>
-       <PiPlusBold onClick={showanswer3} className='sm:text-[40px] text-[23px]'/>
+       {ansactive3 ===false?<IoIosArrowDropdownCircle onClick={showanswer3} className='sm:text-[40px] text-[23px] font-extrabold'/> :
+        <ImCross className='sm:text-[30px] text-[23px] text-red-600'/>}
        </div>
         
         </div>

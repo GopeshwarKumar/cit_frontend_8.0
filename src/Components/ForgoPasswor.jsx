@@ -15,8 +15,8 @@ function Login() {
   const LoginUser=(e)=>{
     e.preventDefault()
     setloader(true)
-    axios.post("https://cit-backend-8-0.onrender.com/forgotpassword",{email}).then(res =>{
-        // console.log(res)
+
+    axios.post(`${process.env.REACT_APP_SECRET_KEY}/forgotpassword`,{email}).then(res =>{
       setloginerror(res.data.message)
       if(res.status===200 && res.data.message==="otp sent to email"){
         navigate('/newpassword')

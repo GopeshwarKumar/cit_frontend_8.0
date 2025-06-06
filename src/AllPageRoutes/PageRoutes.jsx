@@ -4,6 +4,8 @@ import NewPassword from '../Components/NewPassword'
 import { useEffect } from 'react'
 
 const AdminLogin=lazy(()=>import('../Admin/AdminLogin'))
+const AdminRegister=lazy(()=>import('../Admin/AdminRegister'))
+const AdminPanel=lazy(()=>import('../Admin/AdminPanel'))
 
 const Login=lazy(()=>import("../Components/Login"))
 const LandingPage=lazy(()=>import("../Components/LandingPage"))
@@ -15,18 +17,14 @@ const About=lazy(()=>import("../Components/About"))
 const FaqsQuestions=lazy(()=>import("../Components/FaqsQuestions"))
 const ForgoPassword=lazy(()=>import("../Components/ForgoPasswor"))
 
-function PageRoutes() {
-  const navigate=useNavigate()
-        useEffect(()=>{
-          const token=localStorage.getItem("token")
-        if(!token){
-          navigate("/login")
-        }
-        },[])
+function PageRoutes() {  
+        
   return (
    <>
    <Routes>
     <Route path="/adminloginpage" element={<AdminLogin/>} />
+    <Route path="/AdminRegister" element={<AdminRegister/>} />
+    <Route path="/AdminPanel" element={<AdminPanel/>} />
 
 
     <Route path="/" element={<Register />} />

@@ -7,10 +7,10 @@ function LeaderBoard() {
   const [participantsName, setparticipantsName] = useState([])
 
       useEffect(()=>{
-        axios.get("http://localhost:5000/userscore").then(ress=>{
+        axios.get(`${process.env.REACT_APP_SECRET_KEY}/userscore`).then(ress=>{
           setparticipantsName(ress.data)
         }).catch(err =>{
-          // console.log(err)
+          alert('Error caught wait...')
         })
       },[])
       participantsName.sort((a, b) => b.score - a.score)
@@ -18,7 +18,7 @@ function LeaderBoard() {
     <>
     <Navbar/>
     <div className='pageBg w-screen h-[88vh] object-cover'>
-    <div className='w-screen p-3 flex items-center justify-center'>
+    <div className='w-screen p-5 flex items-center justify-center bg-gradient-to-r from-[#011529] to-[#2A0121]'>
         
         <p style={{ WebkitTextStroke: '1px #d8e919' }} className='w-screen flex items-center justify-center text-white cursor-pointer font-bold uppercase lg:text-[45px] sm:text-[40px] mb:text-[40px] vmd:text-[26px]'>
         <div className='hover:-rotate-180 transition-all'>🏅</div>
@@ -55,7 +55,7 @@ function LeaderBoard() {
       {index+1 > 3 ? "🏅" :""}
       <p className='lg:text-[25px] sm:text-[20px] vmd:text-[12px] text-white'>{index+1}</p>
       </th>
-      <th className=' text-cyan-400 w-[50vw] tracking-wider lg:text-[25px] sm:text-[24px] mb:text-[16px] vmd:text-[14px]'>{localStorage.getItem("email")}</th>
+      <th className=' text-cyan-400 w-[50vw] tracking-wider lg:text-[20px] sm:text-[18px] mb:text-[16px] vmd:text-[14px]'>{x.userEmail}</th>
       <th className='text-yellow-400  font-extrabold mb:text-[16px]'>{x.score}</th>
     </tr>
     })}
