@@ -2,6 +2,7 @@ import axios from 'axios'
 import React from 'react'
 import { useState } from 'react'
 import Loader from '../Components/Loader'
+import { toast ,ToastContainer } from 'react-toastify'
 
 function CreateQuestion() {
     const [question1, setquestion1 ] = useState()
@@ -18,10 +19,11 @@ function CreateQuestion() {
         setactive(true)
 
         axios.post(`${process.env.REACT_APP_SECRET_KEY}/createquestion`,{question1,option1,option2,option3,option4,answer}).then(res=>{
-            console.log(res)
-            setmessage(res.data.message)
-        }).catch(err=>{
 
+            setmessage(res.data.message)
+            res.data.message==='Question saved ...' ? toast.success(res.data.message,{}) : toast.warn(res.data.message,{})
+        }).catch(err=>{
+          alert('Error caught !')
         }).finally(final =>{
             setactive(false)
             setanswer("")
