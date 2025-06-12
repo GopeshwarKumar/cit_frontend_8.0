@@ -60,8 +60,8 @@ function Register() {
       <div className='w-full flex flex-col items-center justify-center gap-[10px] '>
 
         <div className='w-full flex items-center justify-center gap-[10px] '>
-        <Link to={"/login"} className='w-[80%] flex items-center gap-1 no-underline text-white text-center sm:text-[17px] text-[14px] py-[1px] px-[15px] rounded-md hover:opacity-60 bg-rose-500 cursor-pointer'>Login <FaLocationArrow /></Link>
-        {loader ===false ?<button className='w-[80%] sm:text-[17px] text-[14px] py-[1px] px-[15px] rounded-md hover:opacity-60 bg-blue-500 cursor-pointer'>Register</button> : (<Loader></Loader>)}
+        <Link to={"/login"} className='w-[80%] flex items-center justify-center gap-1 no-underline text-white text-center sm:text-[17px] text-[14px] sm:py-[1px] vmd:py-[4px] px-[15px] rounded-md hover:opacity-60 bg-rose-500 cursor-pointer'>Login <FaLocationArrow /></Link>
+        {loader ===false ?<button className='w-[80%] sm:text-[17px] text-[14px] sm:py-[1px] vmd:py-[4px] px-[15px] rounded-md hover:opacity-60 bg-blue-500 cursor-pointer'>Register</button> : (<Loader></Loader>)}
         </div>
       <GoogleLogin title='Sign in' onSuccess={(credentialResponse)=>{
       const decoded = jwtDecode(credentialResponse.credential)
