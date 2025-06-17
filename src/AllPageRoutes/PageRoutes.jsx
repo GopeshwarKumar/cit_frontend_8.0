@@ -28,7 +28,6 @@ function PageRoutes() {
 
 
     <Route path="/" element={<Register />} />
-    <Route path="/register" element={<Register/>} />
     <Route path="/login" element={<Login/>} />
     <Route path="/forgetpassword" element={<ForgoPassword/>} />
     <Route path="/newpassword" element={<NewPassword/>} />

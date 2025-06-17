@@ -30,7 +30,7 @@ function FaqsQuestions() {
 <div className='min-h-screen flex flex-col gap-[5vh] mt-[10%] '>
 
 {/* Question 1 */}
-    <div className='shadow-2xl p-5'>
+    <div className='hover:shadow-2xl hover:shadow-slate-950 p-5'>
         <div className="flex items-center justify-between gap-[5vw] 2xl:px-[15vw] xl:px-[20vw] lg:px-[20vw] md:px-[15vw] sm:px-[15vw] px-[5vw]">
        <div onClick={showanswer1} className='w-screen flex items-center justify-between cursor-pointer'>
        <h1 className='text-yellow-400 sm:text-[25px] text-[20px] leading-[20px]'><mark className='p-1 rounded-md font-bold'>1.</mark> What is CIT 7.0 ?</h1>
@@ -45,7 +45,7 @@ function FaqsQuestions() {
     </div>
 
     {/* Question 2 */}
-    <div className='shadow-2xl p-5'>
+    <div className='hover:shadow-2xl hover:shadow-slate-950 p-5'>
         <div className="flex items-center justify-between gap-[5vw] 2xl:px-[15vw] xl:px-[20vw] lg:px-[20vw] md:px-[15vw] sm:px-[15vw] px-[5vw]">
        <div onClick={showanswer2} className='w-screen flex items-center justify-between cursor-pointer'>
        <h1 className='text-yellow-400 sm:text-[25px] text-[20px] leading-[20px]'><mark className='p-1 rounded-md font-bold'>2.</mark> When does it happen ?</h1>
@@ -59,7 +59,7 @@ function FaqsQuestions() {
     </div>
 
     {/* Question 3 */}
-    <div className='shadow-2xl p-5'>
+    <div className='hover:shadow-2xl hover:shadow-slate-950 p-5'>
         <div className="flex items-center justify-between gap-[5vw] 2xl:px-[15vw] xl:px-[20vw] lg:px-[20vw] md:px-[15vw] sm:px-[15vw] px-[5vw]">
        <div onClick={showanswer3} className='w-screen flex items-center justify-between cursor-pointer'>
        <h1 className='text-yellow-400 sm:text-[25px] text-[20px] leading-[20px]'><mark className='p-1 rounded-md font-bold'>3.</mark> Who conducts it ?</h1>
@@ -71,8 +71,6 @@ function FaqsQuestions() {
         {ansactive3 && 
         <p className='mt-[2%] 2xl:text-[25px] xl:text-[25px] lg:text-[25px] md:text-[20px] sm:text-[20px] text-[17px] 2xl:px-[15vw] xl:px-[20vw] lg:px-[20vw] md:px-[15vw] sm:px-[15vw] px-[5vw]'>It's Frequency is It is conducted by <mark className='p-1 rounded-md font-bold'>ISTE</mark> .</p>}
     </div>
-
-    {/* Question 4 */}
     
         </div>
     </div>

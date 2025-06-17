@@ -4,7 +4,6 @@ import Navbar from './Navbar'
 
 function About() {
   return (
-    // [url("https://cdn.pixabay.com/photo/2018/01/06/04/08/blue-3064317_1280.jpg")]
     <div className=' bg-slate-900 '>    
     <Navbar/>
 
@@ -23,11 +22,11 @@ function About() {
     <h2 className='text-center  xl:text-[35px] lg:text-[35px] uppercase mt-[4%]'>preliminary round :</h2>
     <p className=' xl:text-[30px] lg:text-[30px] text-[20px] text-center px-[10px]'>Candidates can attempt CIT only once in any <br/>of three available slots</p>
 
-    <div className='flex items-center justify-center mt-[4%] xl:text-[30px] lg:text-[30px] md:text-[20px] sm:text-[20px] text-[15px]'>
+    <div className='flex items-center justify-center mt-[4%] vmd:text-[15px] sm:text-[18px]'>
         <ul className='flex justify-around gap-[5vw] px-[3vw] leading-[20px]'>
-        <li><p className='font-bold italic text-yellow-500'>SLOT 1</p><br/>10/09/2024<br/><br/> 9:00 PM - 9:30 PM</li>
-        <li><p className='text-yellow-500 font-bold italic'>SLOT 2</p><br/>10/09/2024<br/><br/>9:00 PM - 9:30 PM</li>
-        <li><p className='text-yellow-500 font-bold italic'>SLOT 3</p><br/>10/09/2024<br/><br/>9:00 PM - 9:30 PM</li>
+        <li className='p-5 bg-slate-900 shadow-2xl shadow-slate-800 rounded-md'><p className=' text-center font-bold text-yellow-500 '>SLOT 1</p><br/>10/09/2024<br/><br/> 9:00 PM - 9:30 PM</li>
+        <li className='p-5 bg-slate-900 shadow-2xl shadow-slate-800 rounded-md'><p className='text-yellow-500 font-bold text-center'>SLOT 2</p><br/>10/09/2024<br/><br/>9:00 PM - 9:30 PM</li>
+        <li className='p-5 bg-slate-900 shadow-2xl shadow-slate-800 rounded-md'><p className='text-yellow-500 font-bold text-center'>SLOT 3</p><br/>10/09/2024<br/><br/>9:00 PM - 9:30 PM</li>
         </ul>
     </div>
 

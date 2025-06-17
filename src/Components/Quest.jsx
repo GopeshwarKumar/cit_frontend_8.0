@@ -5,12 +5,15 @@ import { useEffect } from 'react'
 import {toast,ToastContainer} from 'react-toastify'
 import Loader from './Loader'
 import { PiTimerLight } from 'react-icons/pi'
+import {useNavigate} from 'react-router-dom'
 
 function Quest() {
 
+  const navigate=useNavigate()
+
   const [active, setactive] = useState(false)
   const [questionarray, setquestionarray] = useState([])
-  console.log(questionarray)
+  
   useEffect(()=>{
     axios.get(`${process.env.REACT_APP_SECRET_KEY}/getandshowquestion`).then(res =>{
       // console.log(res)
@@ -42,9 +45,10 @@ function Quest() {
   setactive(true)
 
   axios.post('http://localhost:5000/saveanswers',{ answers,userName,userEmail}).then(res=>{
-    // console.log(res)
-    if(res.status===200){
-      toast.success(res.data.message)
+
+    res.data.message==='Answer saved' ? toast.success(res.data.message) :toast.warn(res.data.message)
+    if(res.status===200 && res.data.message==='Answer saved'){
+      navigate('/home')
     }
   }).catch(err=>{
     toast.warn(err)
@@ -53,12 +57,36 @@ function Quest() {
   })
 }
 
+const [min, setMin] = useState(30);
+  const [sec, setSec] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSec(prevSec => {
+        if (prevSec === 0) {
+          setMin(prevMin => {
+            if (prevMin === 0) {
+              clearInterval(interval);
+              return 0;
+            }
+            return prevMin - 1;
+          });
+          return 59;
+        } else {
+          return prevSec - 1;
+        }
+      });
+    }, 100);
+    
+    return () => clearInterval(interval)
+  }, []);
+
   return (
     <>
-    <ToastContainer/>
-    <div className='flex items-center justify-end gap-3 p-4 sticky top-0  px-[5%]'>
-        <PiTimerLight className={`font-extrabold text-[45px] text-blue-600 `}/>
-        <p>08:00</p>
+    <ToastContainer className={`text-[14px]`}/>
+    <div className={`${min<5 ? "text-red-600" :""} flex items-center justify-end gap-3 p-4 sticky top-0  px-[5%]`}>
+        <PiTimerLight className={`${min<5 ? "text-red-600" :""} font-extrabold text-[45px] text-blue-600 animate-bounce`}/>
+        <p>{String(min).padStart(2, '0')}:{String(sec).padStart(2, '0')}</p>
     </div>
     <form onSubmit={handleSubmit}>
       {questionarray.map((w,c)=>{

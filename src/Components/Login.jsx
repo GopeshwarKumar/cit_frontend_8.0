@@ -40,7 +40,7 @@ function Login() {
         localStorage.setItem("name",res.data.name)
         localStorage.setItem("email",res.data.email)
         localStorage.setItem("token",res.data.token)
-        navigate('/home')
+        navigate('/home');
       }
     }).catch(err =>{
       alert('Error caught wait...')
