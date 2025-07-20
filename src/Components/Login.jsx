@@ -31,7 +31,7 @@ function Login() {
     e.preventDefault()
     setloader(true)
     
-    axios.post(`${process.env.REACT_APP_SECRET_KEY}/login`,{email,password}).then(res =>{
+    axios.post("https://cit-backend-8-0.onrender.com/login",{email,password}).then(res =>{
       
       setloginerror(res.data.message)
       res.data.message==='User loggedIn' ? toast.success(res.data.message,{}) : toast.warn(res.data.message,{})
