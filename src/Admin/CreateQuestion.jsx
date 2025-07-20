@@ -18,7 +18,7 @@ function CreateQuestion() {
         e.preventDefault()
         setactive(true)
 
-        axios.post(`${process.env.REACT_APP_SECRET_KEY}/createquestion`,{question1,option1,option2,option3,option4,answer}).then(res=>{
+        axios.post(`https://cit-backend-8-0.onrender.com/createquestion`,{question1,option1,option2,option3,option4,answer}).then(res=>{
             setmessage(res.data.message)
 
             res.data.message==='Question saved ...' ? toast.success(res.data.message,{}) : toast.warn(res.data.message,{})
