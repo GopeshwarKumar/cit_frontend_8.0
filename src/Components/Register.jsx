@@ -20,7 +20,7 @@ function Register() {
     e.preventDefault()
     setloader(true)
 
-    axios.post(`${process.env.REACT_APP_SECRET_KEY}/create`,{candidatename,email,pass}).then(res =>{
+    axios.post(`https://cit-backend-8-0.onrender.com/create`,{candidatename,email,pass}).then(res =>{
       setmessage(res.data.message)
 
       res.data.message==='Registered successfully' ? toast.success(res.data.message,{}) : toast.warn(res.data.message,{})
