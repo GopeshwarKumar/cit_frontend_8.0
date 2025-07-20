@@ -15,7 +15,7 @@ function Quest() {
   const [questionarray, setquestionarray] = useState([])
   
   useEffect(()=>{
-    axios.get(`${process.env.REACT_APP_SECRET_KEY}/getandshowquestion`).then(res =>{
+    axios.get(`https://cit-backend-8-0.onrender.com/getandshowquestion`).then(res =>{
       // console.log(res)
       setquestionarray(res.data)
     }).catch(Err=>{
