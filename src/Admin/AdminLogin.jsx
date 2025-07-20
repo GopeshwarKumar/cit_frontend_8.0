@@ -23,7 +23,7 @@ function AdminLogin() {
     e.preventDefault()
     setloader(true)
     
-    axios.post(`${process.env.REACT_APP_SECRET_KEY}/adminlogin`,{adminemail,adminpassword}).then(res =>{
+    axios.post(`https://cit-backend-8-0.onrender.com/adminlogin`,{adminemail,adminpassword}).then(res =>{
       setloginerror(res.data.message)
       console.log(res)
 
