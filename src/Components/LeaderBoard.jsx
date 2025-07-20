@@ -7,7 +7,7 @@ function LeaderBoard() {
   const [participantsName, setparticipantsName] = useState([])
 
       useEffect(()=>{
-        axios.get(`${process.env.REACT_APP_SECRET_KEY}/userscore`).then(ress=>{
+        axios.get(`https://cit-backend-8-0.onrender.com/userscore`).then(ress=>{
           setparticipantsName(ress.data)
         }).catch(err =>{
           alert('Error caught wait...')
