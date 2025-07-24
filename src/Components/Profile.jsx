@@ -30,7 +30,7 @@ function Profile() {
 
       <div className="flex justify-center items-center mt-[5%]  ">
         <div>
-          <img src='https://cdn.pixabay.com/photo/2021/05/31/12/35/lines-6298723_1280.jpg' alt='lost' loading='lazy' className='sm:block vmd:hidden p-5'/>
+          <img src='/assets/citcartoon.svg' alt='lost' loading='lazy' className='sm:block vmd:hidden p-5'/>
         </div>
         <div className="shadow-xl shadow-slate-900 rounded-lg p-10 w-full max-w-md">
           <div className="space-y-4">
