@@ -44,7 +44,7 @@ function Quest() {
   // clearTimeout(autoSubmitTimeout)
   setactive(true)
 
-  axios.post('http://localhost:5000/saveanswers',{ answers,userName,userEmail}).then(res=>{
+  axios.post(`https://cit-backend-8-0.onrender.com/saveanswers`,{ answers,userName,userEmail}).then(res=>{
 
     res.data.message==='Answer saved' ? toast.success(res.data.message) :toast.warn(res.data.message)
     if(res.status===200 && res.data.message==='Answer saved'){
