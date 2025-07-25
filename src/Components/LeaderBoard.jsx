@@ -55,8 +55,8 @@ function LeaderBoard() {
       {index+1 > 3 ? "🏅" :""}
       <p className='lg:text-[25px] sm:text-[20px] vmd:text-[12px] text-white'>{index+1}</p>
       </th>
-      <th className=' text-cyan-400 w-[50vw] tracking-wider lg:text-[20px] sm:text-[18px] mb:text-[16px] vmd:text-[14px]'>{x.userEmail}</th>
-      <th className='text-yellow-400  font-extrabold mb:text-[16px]'>{x.score}</th>
+      <th className=' text-cyan-400 w-[50vw] tracking-wider lg:text-[20px] sm:text-[18px] mb:text-[16px] vmd:text-[14px]'>{x.email}</th>
+      <th className='text-yellow-400  font-extrabold mb:text-[16px]'>{x.mark}</th>
     </tr>
     })}
     {/* <p className='text-center vmd:text-[12px] sm:text-[15px] text-yellow-400 font-bold cursor-pointer shadow-2xl shadow-yellow-400'>See More...</p> */}
