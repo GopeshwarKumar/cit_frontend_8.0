@@ -37,7 +37,7 @@ function Navbar() {
         {/* navlinks */}
         <div className="flex items-center gap-[10px] ">
           <div className="group flex flex-col items-center gap-2">
-            <IoHome className="text-blue-600 w-0 h-0 opacity-0 group-hover:opacity-100 group-hover:w-6 group-hover:h-6 transition-all duration-1000" />
+            <IoHome className="text-blue-600 w-0 h-0 opacity-0 group-hover:opacity-100 group-hover:w-6 group-hover:h-6 transition-all duration-300" />
           <Link
             to={"/home"} title={"home"}
             viewport={{ once: true }}
@@ -51,7 +51,7 @@ function Navbar() {
           </div>
 
           <div className="group flex flex-col items-center gap-2">
-            <FcAbout className="text-blue-600 w-0 h-0 opacity-0 group-hover:opacity-100 group-hover:w-6 group-hover:h-6 transition-all duration-1000" />
+            <FcAbout className="text-blue-600 w-0 h-0 opacity-0 group-hover:opacity-100 group-hover:w-6 group-hover:h-6 transition-all duration-300" />
             <Link
             to={"/about"}
             title={"about"}
@@ -65,7 +65,7 @@ function Navbar() {
           </div>
           
           <div className="group flex flex-col items-center gap-2">
-            <FaQuestion className="text-blue-600 w-0 h-0 opacity-0 group-hover:opacity-100 group-hover:w-6 group-hover:h-6 transition-all duration-1000" />
+            <FaQuestion className="text-blue-600 w-0 h-0 opacity-0 group-hover:opacity-100 group-hover:w-6 group-hover:h-6 transition-all duration-300" />
           <Link
             to={"/faqs"} title={"faqs"}
             viewport={{ once: true }}
@@ -79,7 +79,7 @@ function Navbar() {
           </div>
 
           <div className="group flex flex-col items-center gap-2">
-            <MdLeaderboard className="text-blue-600 w-0 h-0 opacity-0 group-hover:opacity-100 group-hover:w-6 group-hover:h-6 transition-all duration-1000" />
+            <MdLeaderboard className="text-blue-600 w-0 h-0 opacity-0 group-hover:opacity-100 group-hover:w-6 group-hover:h-6 transition-all duration-300" />
           <Link
             to={"/leaderboard"} title={"leaderboard"}
             viewport={{ once: true }}
@@ -93,7 +93,7 @@ function Navbar() {
           </div>
 
           <div className="group flex flex-col items-center gap-2">
-            <CgProfile className="text-blue-600 w-0 h-0 opacity-0 group-hover:opacity-100 group-hover:w-6 group-hover:h-6 transition-all duration-1000" />
+            <CgProfile className="text-blue-600 w-0 h-0 opacity-0 group-hover:opacity-100 group-hover:w-6 group-hover:h-6 transition-all duration-300" />
           <Link
             to={"/profile"} title={"profile"}
             viewport={{ once: true }}
