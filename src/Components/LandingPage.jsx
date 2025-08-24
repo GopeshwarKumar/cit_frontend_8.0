@@ -15,7 +15,7 @@ function LandingPage() {
     const [message, setmessage] = useState()
   
         useEffect(()=>{
-          axios.post(`${process.env.REACT_APP_SECRET_KEY}/checkuser`,{userEmail}).then(res =>{
+          axios.post(`https://cit-backend-8-0.onrender.com/checkuser`,{userEmail}).then(res =>{
             setmessage(res.data.message)
             if(res.status===200){
               toast.warn(res.data.message)
