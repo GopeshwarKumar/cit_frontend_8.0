@@ -16,7 +16,7 @@ function Profile() {
   }
 
   return (
-    <div className="w-screen h-screen bg-slate-800">
+    <div className="w-screen h-screen  ">
       <Navbar />
         <div className='w-screen flex items-center justify-center gap-[2px] lg:text-[60px] sm:text-[45px] mb:text-[35px] text-[35px] text-center font-extrabold cursor-pointer'>
           <div className='hover:-translate-y-2  transition-all'>P</div>
@@ -30,7 +30,7 @@ function Profile() {
 
       <div className="flex justify-center items-center mt-[5%]  ">
         <div>
-          <img src='/assets/citcartoon.svg' alt='lost' loading='lazy' className='sm:block vmd:hidden p-5'/>
+          <img src='/assets/citcartoon.svg' alt='lost' loading='lazy' className='md:block vmd:hidden p-5'/>
         </div>
         <div className="shadow-xl shadow-slate-900 rounded-lg p-10 w-full max-w-md">
           <div className="space-y-4">

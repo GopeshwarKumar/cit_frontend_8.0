@@ -44,7 +44,7 @@ function Quest() {
   // clearTimeout(autoSubmitTimeout)
   setactive(true)
 
-  axios.post('http://localhost:5000/saveanswers',{ answers,userName,userEmail}).then(res=>{
+  axios.post(`${process.env.REACT_APP_SECRET_KEY}/saveanswers`,{ answers,userName,userEmail}).then(res=>{
 
     res.data.message==='Answer saved' ? toast.success(res.data.message) :toast.warn(res.data.message)
     if(res.status===200 && res.data.message==='Answer saved'){
@@ -57,45 +57,45 @@ function Quest() {
   })
 }
 
-const [min, setMin] = useState(30);
-  const [sec, setSec] = useState(0);
+  const [timeLeft, setTimeLeft] = useState(30 * 60); // 30 minutes in seconds
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setSec(prevSec => {
-        if (prevSec === 0) {
-          setMin(prevMin => {
-            if (prevMin === 0) {
-              clearInterval(interval);
-              return 0;
-            }
-            return prevMin - 1;
-          });
-          return 59;
-        } else {
-          return prevSec - 1;
-        }
-      });
-    }, 100);
-    
-    return () => clearInterval(interval)
-  }, []);
+    const timer =
+      timeLeft > 0 &&
+      setInterval(() => {
+        setTimeLeft((prevTime) => prevTime - 1);
+      }, 1000);
+
+    return () => clearInterval(timer); // Cleanup on unmount
+  }, [timeLeft]);
+
+  // Format seconds to MM:SS
+  const formatTime = (seconds) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+  };
+
 
   return (
     <>
     <ToastContainer className={`text-[14px]`}/>
-    <div className={`${min<5 ? "text-red-600" :""} flex items-center justify-end gap-3 p-4 sticky top-0  px-[5%]`}>
-        <PiTimerLight className={`${min<5 ? "text-red-600" :""} font-extrabold text-[45px] text-blue-600 animate-bounce`}/>
-        <p>{String(min).padStart(2, '0')}:{String(sec).padStart(2, '0')}</p>
+    {timeLeft===300 ? toast.warn("5 minutes left"): ""}
+    <div className={`${timeLeft<300 ? "text-red-600" :""} flex items-center justify-end gap-3 p-4 sticky top-0  px-[5%]`}>
+        <PiTimerLight className={`${timeLeft<300 ? "text-red-600" :""} font-extrabold text-[45px] text-blue-600 animate-bounce`}/>
+        {formatTime(timeLeft)}
     </div>
     <form onSubmit={handleSubmit}>
-      {questionarray.map((w,c)=>{
-      return <div key={c} className='w-full bg-slate-950 p-5'>
+    
+    {questionarray.map((w,c)=>{
+      return <div key={c} className='w-full bg-slate-950 p-5 odd:bg-slate-800'>
       
     <div>
-    <p className='lg:px-[20vw] md:px-[15vw] sm:px-[10vw] sm:text-[20px] mb:px-[5vw] lg:py-0 vmd:py-5 mb:text-[17px] vmd:text-[15px] text-yellow-300 select-none '>{c+1}. {w.question1}</p>
+    <p className=' overflow-hidden lg:px-[20vw] md:px-[15vw] sm:px-[10vw] sm:text-[20px] mb:px-[5vw] lg:py-0 vmd:py-5 mb:text-[17px] vmd:text-[15px] text-yellow-300 select-none text-wrap'>{c+1}. {w.question1}</p>
     </div>
-    
+    <div className={`${w.questionImage==="" ? "hidden" : ""} w-full flex items-center justify-center`}>
+      <div className={`${w.questionImage===undefined ? "hidden" :""} w-[200px] h-[200px] `}><img src={w.questionImage} alt={w.questionImage}/></div>
+    </div>
     {/* option div there are 4 div */}
     <form onSubmit={handleSubmit} id='formmm'>
       <div className='flex flex-col items-center justify-center gap-2 lg:mt-[5%]'>

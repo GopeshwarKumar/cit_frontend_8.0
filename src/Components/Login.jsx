@@ -72,7 +72,7 @@ function Login() {
         {/* <input type='checkbox' className='right-4 relative'/> */}
       </div>
       <div className='flex items-center justify-center gap-[20px]'>
-        <Link to={"/register"} className='sm:text-[20px] text-[16px] py-[1px] px-[15px] rounded-md hover:opacity-60 bg-green-500 no-underline'>Register</Link>
+        <Link to={"/"} className='sm:text-[20px] text-[16px] py-[1px] px-[15px] rounded-md hover:opacity-60 bg-green-500 no-underline'>Register</Link>
       {loader === false ? <button className='sm:text-[20px] text-[16px] py-[1px] px-[15px] rounded-md hover:opacity-60 bg-blue-500 '>Login</button> :(<Loader></Loader>)}
       </div>
     </form>

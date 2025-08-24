@@ -6,6 +6,7 @@ import { toast ,ToastContainer } from 'react-toastify'
 
 function CreateQuestion() {
     const [question1, setquestion1 ] = useState()
+    const [questionImage, setquestionImage ] = useState()
     const [option1, setoption1 ] = useState()
     const [option2, setoption2 ] = useState()
     const [option3, setoption3 ] = useState()
@@ -18,7 +19,7 @@ function CreateQuestion() {
         e.preventDefault()
         setactive(true)
 
-        axios.post(`${process.env.REACT_APP_SECRET_KEY}/createquestion`,{question1,option1,option2,option3,option4,answer}).then(res=>{
+        axios.post(`${process.env.REACT_APP_SECRET_KEY}/createquestion`,{question1,questionImage,option1,option2,option3,option4,answer}).then(res=>{
             setmessage(res.data.message)
 
             res.data.message==='Question saved ...' ? toast.success(res.data.message,{}) : toast.warn(res.data.message,{})
@@ -33,6 +34,7 @@ function CreateQuestion() {
             setoption3("")
             setoption4("")
             setquestion1("")
+            setquestionImage("")
         })
 
     }
@@ -51,7 +53,17 @@ function CreateQuestion() {
       typeof="text"
       placeholder="Enter the question"
       onChange={(e) => setquestion1(e.target.value)}
-      className="w-full text-black rounded-md p-3 focus:outline-none border-b-4 border-transparent focus:border-yellow-300 transition-all resize-none"
+      className="w-full placeholder:text-[16px] lg:text-[20px] text-[16px]  placeholder:text-slate-600 placeholder:hover:tracking-tighter placeholder:duration-200 text-black rounded-md p-3 focus:outline-none border-b-4 border-transparent focus:border-yellow-300 transition-all resize-none"
+    />
+  </div>
+  <div>
+    <label className="block text-yellow-200 mb-1 font-medium">Question Image</label>
+    <input
+      value={questionImage} required
+      typeof="text"
+      placeholder="Image Link only"
+      onChange={(e) => setquestionImage(e.target.value)}
+      className="w-full placeholder:text-[16px] lg:text-[20px] text-[16px] placeholder:text-slate-600 placeholder:hover:tracking-tighter placeholder:duration-200 text-black rounded-md  py-1 px-3 focus:outline-none border-b-4 border-transparent focus:border-yellow-300 transition-all resize-none"
     />
   </div>
 
@@ -63,7 +75,7 @@ function CreateQuestion() {
         value={option1} required
         onChange={(e) => setoption1(e.target.value)}
         placeholder="Option A"
-        className="w-full text-black sm:text-[20px] vmd:text-[16px] rounded-md px-2 focus:outline-none border-b-4 border-transparent focus:border-yellow-300 transition-all"
+        className="w-full placeholder:text-[16px] lg:text-[20px] text-[16px]  placeholder:text-slate-600 placeholder:hover:tracking-tighter placeholder:duration-200 text-black sm:text-[20px] vmd:text-[16px] rounded-md px-2 focus:outline-none border-b-4 border-transparent focus:border-yellow-300 transition-all"
       />
     </div>
     <div>
@@ -72,7 +84,7 @@ function CreateQuestion() {
         value={option2} required
         onChange={(e) => setoption2(e.target.value)}
         placeholder="Option B"
-        className="w-full text-black sm:text-[20px] vmd:text-[16px] rounded-md px-2 focus:outline-none border-b-4 border-transparent focus:border-yellow-300 transition-all"
+        className="w-full placeholder:text-[16px] lg:text-[20px] text-[16px]  placeholder:text-slate-600 placeholder:hover:tracking-tighter placeholder:duration-200 text-black sm:text-[20px] vmd:text-[16px] rounded-md px-2 focus:outline-none border-b-4 border-transparent focus:border-yellow-300 transition-all"
       />
     </div>
     <div>
@@ -81,7 +93,7 @@ function CreateQuestion() {
         value={option3} required
         onChange={(e) => setoption3(e.target.value)}
         placeholder="Option C"
-        className="w-full text-black sm:text-[20px] vmd:text-[16px] rounded-md px-2 focus:outline-none border-b-4 border-transparent focus:border-yellow-300 transition-all"
+        className="w-full placeholder:text-[16px] lg:text-[20px] text-[16px] placeholder:text-slate-600 placeholder:hover:tracking-tighter placeholder:duration-200 text-black sm:text-[20px] vmd:text-[16px] rounded-md px-2 focus:outline-none border-b-4 border-transparent focus:border-yellow-300 transition-all"
       />
     </div>
     <div>
@@ -90,7 +102,7 @@ function CreateQuestion() {
         value={option4} required
         onChange={(e) => setoption4(e.target.value)}
         placeholder="Option D"
-        className="w-full text-black sm:text-[20px] vmd:text-[16px] rounded-md px-2 focus:outline-none border-b-4 border-transparent focus:border-yellow-300 transition-all"
+        className="w-full placeholder:text-[16px] lg:text-[20px] text-[16px] placeholder:text-slate-600 placeholder:hover:tracking-tighter placeholder:duration-200 text-black sm:text-[20px] vmd:text-[16px] rounded-md px-2 focus:outline-none border-b-4 border-transparent focus:border-yellow-300 transition-all"
       />
     </div>
   </div>
@@ -102,7 +114,7 @@ function CreateQuestion() {
       value={answer} required
       onChange={(e) => setanswer(e.target.value)}
       placeholder="Type the correct option (e.g., Option A)"
-      className="w-full text-green-500 sm:text-[20px] vmd:text-[16px] rounded-md px-2 focus:outline-none border-b-4 border-transparent focus:border-green-400 transition-all"
+      className="w-full placeholder:text-[16px] lg:text-[20px] text-[16px] placeholder:text-slate-600 placeholder:hover:tracking-tighter placeholder:duration-200 text-green-500 sm:text-[20px] vmd:text-[16px] rounded-md px-2 focus:outline-none border-b-4 border-transparent focus:border-green-400 transition-all"
     />
   </div>
 

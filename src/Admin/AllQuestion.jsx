@@ -8,13 +8,15 @@ function AllQuestion() {
 
     const [questionlist, setquestionlist] = useState([])
     const [deletequestion, setdeletequestion] = useState()
+
     useEffect(()=>{
         axios.get(`${process.env.REACT_APP_SECRET_KEY}/getandshowquestion`).then(res =>{
+            console.log(res)
             setquestionlist(res.data)
         }).catch(er=>{
 
         })
-    })
+    },[deletequestion])
   return (
     <>
     <ToastContainer className={`text-[15px]`}/>
@@ -22,7 +24,8 @@ function AllQuestion() {
     <div>
         {questionlist.map((e,x)=>{
             return <div key={x} className='bg-slate-800 sm:text-[20px] vmd:text-[16px] mt-3 p-5'>
-                <p>{e.question1}</p>
+                <p>{x+1}. {e.question1}</p>
+                <div className={`w-[200px] h-[200px]`}><img src={e.questionImage} alt={e.questionImage}/></div>
                 <p>{e.option1}</p>
                 <p>{e.option2}</p>
                 <p>{e.option3}</p>

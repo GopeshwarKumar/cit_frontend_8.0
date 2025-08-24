@@ -1,11 +1,16 @@
 import React, { useState } from "react";
-import { FaArrowLeft } from "react-icons/fa";
+import { CgProfile } from "react-icons/cg";
+import { FaArrowLeft, FaQuestion } from "react-icons/fa";
+import { FcAbout } from "react-icons/fc";
 import { GiCrossMark} from "react-icons/gi";
+import { IoHome } from "react-icons/io5";
+import { MdLeaderboard } from "react-icons/md";
 import { Link, useLocation } from "react-router-dom";
+import {motion} from 'framer-motion'
 
 function Navbar() {
 
-    const location=useLocation()
+  const location=useLocation()
 
   const [open, setopen] = useState(false);
   const [translate, settranslate] = useState("-translate-x-[350px]");
@@ -20,77 +25,107 @@ function Navbar() {
 
   return (
     <>
-      <nav className="w-screen h-[75px] flex items-center justify-between shadow-lg hover:shadow-2xl duration-300 transition-all hover:shadow-slate-900 px-[5vw]">
-        <div>
+      <nav className="w-screen h-[8vh] flex items-center justify-between shadow-lg hover:shadow-2xl duration-300 transition-all hover:shadow-slate-900 px-[2vw]">
+        <motion.div viewport={{ once: true }}
+            initial={{ opacity: 0, translateY: -15 }}
+            whileInView={{ opacity: 1, translateY: 0 }}
+            transition={{ duration: 0.2 }}>
           {location.pathname=== '/home'? <img
             src="/assets/istelogo.png"
             alt="lost"
             className="2xl:w-[70px] 2xl:h-[70px] xl:w-[60px] xl:h-[60px]  lg:w-[50px] lg:h-[50px] md:w-[40px] md:h-[40px] sm:w-[40px] sm:h-[40px] w-[40px] h-[40px] hover:scale-110 transition-all "
-          /> :<Link to={'/home'} className={`vmd:hidden sm:block font-bold no-underline py-[2px] px-[10px] 2xl:text-[20px] sm:text-[18px] vmd:text-[12px] rounded-md text-[10px] text-red-600 hover:text-yellow-300 transition-all duration-100`}><FaArrowLeft title="Go Back" className="text-[30px] "/>
+          /> :<Link to={'/home'} className={`vmd:hidden sm:block font-bold no-underline py-[2px] px-[10px] 2xl:text-[20px] sm:text-[18px] vmd:text-[12px] rounded-md text-[10px] text-red-600 hover:text-yellow-300 transition-all duration-100`}>
+          <FaArrowLeft title="Go Back" className="text-[30px] "/>
           </Link>}
-        </div>
+        </motion.div>
         {/* hamburger links */}
         {/* navlinks */}
         <div className="flex items-center gap-[10px] ">
-          <Link
-            to={"/home"} title={"home"}
-            viewport={{ once: true }}
+          <div className="group flex flex-col items-center ">
+            <IoHome className="text-blue-600 w-0 h-0 opacity-0 group-hover:opacity-100 group-hover:w-6 group-hover:h-6 transition-all duration-200" />
+          <motion.div viewport={{ once: true }}
             initial={{ opacity: 0, translateY: -15 }}
             whileInView={{ opacity: 1, translateY: 0 }}
-            transition={{ duration: 0.2 }}
-            className={`${location.pathname==="/home" && "bg-red-400 rounded-md"} vmd:hidden sm:block font-bold no-underline py-[2px] px-[10px] 2xl:text-[20px] sm:text-[18px] vmd:text-[12px] text-white hover:text-yellow-300 transition-all duration-100`}
-          >
+            transition={{ duration: 0.2 }}>
+            <Link
+            to={"/home"} title={"home"}
+            className={`googlefont ${location.pathname==="/home" && "bg-red-400 rounded-md"} vmd:hidden sm:block font-bold no-underline py-[2px] px-[10px] 2xl:text-[20px] sm:text-[18px] vmd:text-[12px] text-black hover:text-blue-600 transition-all duration-100`}>
             Home
           </Link>
-          <Link
-            to={"/about"} title={"about"}
+          </motion.div>
+          </div>
+
+          <div className="group flex flex-col items-center ">
+            <FcAbout className="text-blue-600 w-0 h-0 opacity-0 group-hover:opacity-100 group-hover:w-6 group-hover:h-6 transition-all duration-200" />
+            <motion.div 
             viewport={{ once: true }}
             initial={{ opacity: 0, translateY: -15 }}
             whileInView={{ opacity: 1, translateY: 0 }}
-            transition={{ duration: 0.2 }}
-            className={`${location.pathname==="/about" && "bg-red-400 rounded-md"} vmd:hidden sm:block font-bold no-underline py-[2px] px-[10px] 2xl:text-[20px] sm:text-[18px] vmd:text-[12px] text-white hover:text-yellow-300 transition-all duration-100`}
-          >
+            transition={{ duration: 0.2 }}>
+              <Link
+            to={"/about"}
+            title={"about"}
+            className={` ${location.pathname === "/about" && "bg-red-400 rounded-md"} vmd:hidden sm:block font-bold no-underline py-[2px] px-[10px] 2xl:text-[20px] sm:text-[18px] vmd:text-[12px] text-black hover:text-blue-600 transition-all duration-100 flex flex-col items-center `}>
             About Us
-          </Link>
-          <Link
-            to={"/faqs"} title={"faqs"}
+            </Link>
+            </motion.div>
+          </div>
+          
+          <div className="group flex flex-col items-center ">
+            <FaQuestion className="text-blue-600 w-0 h-0 opacity-0 group-hover:opacity-100 group-hover:w-6 group-hover:h-6 transition-all duration-200" />
+          <motion.div 
             viewport={{ once: true }}
             initial={{ opacity: 0, translateY: -15 }}
             whileInView={{ opacity: 1, translateY: 0 }}
-            transition={{ duration: 0.2, delay: 0.2 }}
-            className={`${location.pathname==="/faqs" && "bg-red-400 rounded-md"} vmd:hidden sm:block font-bold no-underline py-[2px] px-[10px] 2xl:text-[20px] sm:text-[18px] vmd:text-[12px] text-white hover:text-yellow-300 transition-all duration-100`}
+            transition={{ duration: 0.2, delay: 0.2 }}>
+            <Link
+            to={"/faqs"} title={"faqs"}
+            className={`${location.pathname==="/faqs" && "bg-red-400 rounded-md"} vmd:hidden sm:block font-bold no-underline py-[2px] px-[10px] 2xl:text-[20px] sm:text-[18px] vmd:text-[12px] text-black hover:text-blue-600 transition-all duration-100`}
           >
             Faqs
           </Link>
-          <Link
-            to={"/leaderboard"} title={"leaderboard"}
+          </motion.div>
+          </div>
+
+          <div className="group flex flex-col items-center ">
+            <MdLeaderboard className="text-blue-600 w-0 h-0 opacity-0 group-hover:opacity-100 group-hover:w-6 group-hover:h-6 transition-all duration-200" />
+          <motion.div 
             viewport={{ once: true }}
             initial={{ opacity: 0, translateY: -15 }}
             whileInView={{ opacity: 1, translateY: 0 }}
-            transition={{ duration: 0.2, delay: 0.4 }}
-            className={`${location.pathname==="/leaderboard" && "bg-red-400 rounded-md"} vmd:hidden sm:block font-bold no-underline py-[2px] px-[10px] 2xl:text-[20px] sm:text-[18px] vmd:text-[12px] text-white hover:text-yellow-300 transition-all duration-100`}
+            transition={{ duration: 0.2, delay: 0.4 }}>
+            <Link
+            to={"/leaderboard"} title={"leaderboard"}
+            className={`${location.pathname==="/leaderboard" && "bg-red-400 rounded-md"} vmd:hidden sm:block font-bold no-underline py-[2px] px-[10px] 2xl:text-[20px] sm:text-[18px] vmd:text-[12px] text-black hover:text-blue-600 transition-all duration-100`}
           >
             LeaderBoard
           </Link>
-          <Link
-            to={"/profile"} title={"profile"}
+          </motion.div>
+          </div>
+
+          <div className="group flex flex-col items-center ">
+            <CgProfile className="text-blue-600 w-0 h-0 opacity-0 group-hover:opacity-100 group-hover:w-6 group-hover:h-6 transition-all duration-200" />
+          <motion.div 
             viewport={{ once: true }}
             initial={{ opacity: 0, translateY: -15 }}
             whileInView={{ opacity: 1, translateY: 0 }}
-            transition={{ duration: 0.2, delay: 0.6 }}
-            className={`${location.pathname==="/profile" && "bg-red-400 rounded-md"} vmd:hidden sm:block font-bold no-underline py-[2px] px-[10px] 2xl:text-[20px] sm:text-[18px] vmd:text-[12px] text-white hover:text-yellow-300 transition-all duration-100`}
-          >
+            transition={{ duration: 0.2, delay: 0.6 }}>
+            <Link
+            to={"/profile"} title={"profile"}
+            className={`${location.pathname==="/profile" && "bg-red-400 rounded-md"} vmd:hidden sm:block font-bold no-underline py-[2px] px-[10px] 2xl:text-[20px] sm:text-[18px] vmd:text-[12px] text-black hover:text-blue-600 transition-all duration-100`}>
             Profile
           </Link>
+          </motion.div>
+          </div>
           {open === true ? (
             <GiCrossMark
               onClick={closehamburgerMenu}
               className="m-4 cursor-pointer text-red-500"
             />
           ) : (
-            <div onClick={openhamburgerMenu} className="vmd:block sm:hidden cursor-pointer duration-200 mb:mt-4 vmd:mt-2 flex items-center justify-center">
-              <div className="w-6 h-1 bg-yellow-300 m-[2px]"></div>
-              <div className="w-6 h-1 bg-white m-[2px]"></div>
+            <div onClick={openhamburgerMenu} className="vmd:block sm:hidden cursor-pointer duration-200  vmd:mt-2 flex items-center justify-center">
+              <div className="w-6 h-1 bg-red-600 m-[2px]"></div>
+              <div className="w-6 h-1 bg-white rounded-xl m-[2px]"></div>
               <div className="w-6 h-1 bg-yellow-300 m-[2px]"></div>
             </div>
           )}

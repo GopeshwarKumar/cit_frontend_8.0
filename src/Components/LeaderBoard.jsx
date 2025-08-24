@@ -5,15 +5,22 @@ import Navbar from './Navbar'
 function LeaderBoard() {
   
   const [participantsName, setparticipantsName] = useState([])
+  const [loader, setloader] = useState(false)
 
       useEffect(()=>{
-        axios.get(`${process.env.REACT_APP_SECRET_KEY}/userscore`).then(ress=>{
-          setparticipantsName(ress.data)
+        axios.get(`${process.env.REACT_APP_SECRET_KEY}/userscore`).then(res=>{
+        setloader(true)
+        setparticipantsName(res.data);
+          // const allValues = res.data.map(obj => Object.values(obj.toObject()));
+          // console.log(allValues);
         }).catch(err =>{
           alert('Error caught wait...')
+        }).finally(fin =>{
+          setloader(false)
         })
       },[])
       participantsName.sort((a, b) => b.score - a.score)
+      
   return (
     <>
     <Navbar/>
@@ -45,7 +52,7 @@ function LeaderBoard() {
         <th>Email</th>
         <th>Score</th>
       </tr>
-     {/* #5F185A  #DBCCC7*/}
+      {loader===true ? <h1>Loading ...</h1> : <>
       {participantsName.map((x,index)=>{
       return <tr key={index} className='2xl:w-[40vw] xl:w-[50vw] lg:w-[55vw] md:w-[60vw] sm:w-[65vw] vmd:w-[90vw] vmd:h-[5vh] odd:bg-[#5F185A] even::bg-[#DBCCC7] shadow-md hover:shadow-blue-900 bg-[#000F1E]  hover:bg-opacity-60 flex items-center justify-around lg:px-4 vmd:px-3 sm:rounded-s-[50px] vmd:rounded-[30px] lg:text-[25px] sm:text-[20px] vmd:text-[12px] cursor-pointer '>
       <th className='flex items-center gap-4 lg:text-[30px] sm:text-[25px] vmd:text-[15px] '>
@@ -55,11 +62,13 @@ function LeaderBoard() {
       {index+1 > 3 ? "🏅" :""}
       <p className='lg:text-[25px] sm:text-[20px] vmd:text-[12px] text-white'>{index+1}</p>
       </th>
-      <th className=' text-cyan-400 w-[50vw] tracking-wider lg:text-[20px] sm:text-[18px] mb:text-[16px] vmd:text-[14px]'>{x.userEmail}</th>
-      <th className='text-yellow-400  font-extrabold mb:text-[16px]'>{x.score}</th>
+      <th className=' text-cyan-400 w-[50vw] tracking-wider lg:text-[20px] sm:text-[18px] mb:text-[16px] vmd:text-[14px]'>{x.email}</th>
+      <th className='text-yellow-400  font-extrabold mb:text-[16px]'>{x.mark}</th>
     </tr>
     })}
-    {/* <p className='text-center vmd:text-[12px] sm:text-[15px] text-yellow-400 font-bold cursor-pointer shadow-2xl shadow-yellow-400'>See More...</p> */}
+    </>}
+
+
     </table>
     </div>
     </div>
