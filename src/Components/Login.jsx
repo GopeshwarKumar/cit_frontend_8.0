@@ -31,7 +31,7 @@ function Login() {
     e.preventDefault()
     setloader(true)
     
-    axios.post("https://cit-backend-8-0.onrender.com/login",{email,password}).then(res =>{
+    axios.post(`https://cit-backend-8-0.onrender.com/login`,{email,password}).then(res =>{
       
       setloginerror(res.data.message)
       res.data.message==='User loggedIn' ? toast.success(res.data.message,{}) : toast.warn(res.data.message,{})
@@ -52,7 +52,7 @@ function Login() {
   return (
     <>
     <ToastContainer className={`text-[15px]`}/>
-    <div className='w-screen h-screen bg-slate-900 flex flex-row items-center justify-center gap-[5vw] overflow-x-hidden '>
+    <div className='w-screen h-screen flex flex-row items-center justify-center gap-[5vw] overflow-x-hidden bg-gradient-to-tr from from-white to-slate-400'>
 
     <div className='flex items-center justify-center'>
     <img src='/assets/citcartoon.svg' alt='lost' loading='lazy' className='vmd:hidden md:block'/>
@@ -62,8 +62,8 @@ function Login() {
     items-center justify-center gap-[10px] vmd:bg-slate-800 p-5 rounded-t-md shadow-2xl shadow-slate-800'>
    
     <div>
-      <h1 className='sm:text-[40px] text-nowrap font-bold px-4 '>Login Here</h1>
-    <h2 className='text-center italic hover:tracking-wider transition-all'>CIT 2.0</h2>
+      <h1 className='sm:text-[40px] text-nowrap font-bold px-4 text-white'>Login Here</h1>
+    <h2 className='text-center italic hover:tracking-wider transition-all text-white'>CIT 2.0</h2>
     </div>
     <form action='/login' method='post' onSubmit={LoginUser} className='flex flex-col items-center justify-center gap-[15px] '>
       <input type='email' required placeholder='Enter Your Email' onChange={(e)=>{setemail(e.target.value)}} className='outline-none rounded py-[5px] px-[10px] font-sans placeholder:text-[16px] lg:text-[20px] text-[16px] text-black  placeholder:text-slate-600 placeholder:hover:tracking-tighter placeholder:duration-200 '/>
