@@ -40,7 +40,7 @@ function LandingPage() {
 
     <span className='w-screen leading-tight flex flex-col items-center justify-center opacity-100 sm:mt-[5%]'>
 
-    <h1 className='citword text-center text-wrap lg:text-[150px] sm:text-[130px] mb:text-[90px] text-[60px] tracking-[7px] font-extrabold flex items-center justify-center'>CIT</h1>
+    <h1 className='citword text-center text-wrap lg:text-[150px] sm:text-[130px] mb:text-[120px] text-[60px] tracking-[7px] font-extrabold flex items-center justify-center'>CIT</h1>
 
     <h3 className='citword text-center whitespace-nowrap xl:text-[40px] lg:text-[35px] md:text-[30px] sm:text-[26px] mb:text-[22px] text-[13px] font-serif text-black font-extrabold tracking-[2px]'>Cognitive Intelligence Test 2.0</h3>
     </span>
