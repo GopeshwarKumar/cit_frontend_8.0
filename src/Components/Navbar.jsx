@@ -139,7 +139,7 @@ function Navbar() {
               initial={{ opacity: 0, translateY: -5 }}
               whileInView={{ opacity: 1, translateY: 0 }}
               transition={{ duration: 0.3 }}>
-            <Link to={"/home"} className="font-bold no-underline py-[5px] px-[10px] text-[15px] 2xl:text-[15px] lg:text-[12px] md:text-[12px] sm:text-[12px] text-white hover:text-blue-600 transition-all cursor-pointer w-full">
+            <Link to={"/home"} className={`googlefont ${location.pathname==="/home" && "bg-red-400 rounded-md"} font-bold no-underline py-[5px] px-[10px] text-[15px] 2xl:text-[15px] lg:text-[12px] md:text-[12px] sm:text-[12px] text-white hover:text-blue-600 transition-all cursor-pointer w-full`}>
               Home
             </Link>
             </motion.div>
@@ -148,8 +148,7 @@ function Navbar() {
               initial={{ opacity: 0, translateY: -5 }}
               whileInView={{ opacity: 1, translateY: 0 }}
               transition={{ duration: 0.3, delay: 0.3 }}>
-            <Link to={"/about"} className="font-bold no-underline py-[5px] px-[10px] text-[15px] 2xl:text-[15px] lg:text-[12px] md:text-[12px] sm:text-[12px] text-white hover:text-blue-600 transition-all cursor-pointer w-full"
-            >
+            <Link to={"/about"} className={`googlefont ${location.pathname==="/about" && "bg-red-400 rounded-md"} font-bold no-underline py-[5px] px-[10px] text-[15px] 2xl:text-[15px] lg:text-[12px] md:text-[12px] sm:text-[12px] text-white hover:text-blue-600 transition-all cursor-pointer w-full`}>
               About Us
             </Link>
             </motion.div>
@@ -158,8 +157,7 @@ function Navbar() {
               initial={{ opacity: 0, translateY: -5 }}
               whileInView={{ opacity: 1, translateY: 0 }}
               transition={{ duration: 0.3, delay: 0.6 }}>
-            <Link to={"/faqs"} className="font-bold no-underline py-[5px] px-[10px] text-[15px] 2xl:text-[15px] lg:text-[12px] md:text-[12px] sm:text-[12px] text-white hover:text-blue-600 transition-all  cursor-pointer w-full"
-            >
+            <Link to={"/faqs"} className={`googlefont ${location.pathname==="/faqs" && "bg-red-400 rounded-md"} font-bold no-underline py-[5px] px-[10px] text-[15px] 2xl:text-[15px] lg:text-[12px] md:text-[12px] sm:text-[12px] text-white hover:text-blue-600 transition-all cursor-pointer w-full`}>
               Faqs
             </Link>
             </motion.div>
@@ -168,9 +166,7 @@ function Navbar() {
               initial={{ opacity: 0, translateY: -10 }}
               whileInView={{ opacity: 1, translateY: 0 }}
               transition={{ duration: 0.3, delay: 0.9 }}>
-              <Link to={"/leaderboard"}
-              className="font-bold no-underline py-[5px] px-[10px] text-[15px] 2xl:text-[15px] lg:text-[12px] md:text-[12px] sm:text-[12px] text-white hover:text-blue-600 transition-all cursor-pointer w-full"
-            >
+              <Link to={"/leaderboard"} className={`googlefont ${location.pathname==="/leaderboard" && "bg-red-400 rounded-md"} font-bold no-underline py-[5px] px-[10px] text-[15px] 2xl:text-[15px] lg:text-[12px] md:text-[12px] sm:text-[12px] text-white hover:text-blue-600 transition-all cursor-pointer w-full`}>
               LeaderBoard
             </Link>
             </motion.div>
@@ -180,9 +176,7 @@ function Navbar() {
               whileInView={{ opacity: 1, translateY: 0 }}
               transition={{ duration: 0.3, delay: 1.2 }}>
               <Link
-              to={"/profile"}
-              className="font-bold no-underline py-[5px] px-[10px] text-[15px] 2xl:text-[15px] lg:text-[12px] md:text-[12px] sm:text-[12px] text-white hover:text-blue-600 transition-all  cursor-pointer w-full"
-            >
+              to={"/profile"} className={`googlefont ${location.pathname==="/profile" && "bg-red-400 rounded-md"} font-bold no-underline py-[5px] px-[10px] text-[15px] 2xl:text-[15px] lg:text-[12px] md:text-[12px] sm:text-[12px] text-white hover:text-blue-600 transition-all cursor-pointer w-full`}>
               Profile
             </Link>
             </motion.div>
