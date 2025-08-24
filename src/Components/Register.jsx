@@ -39,7 +39,7 @@ function Register() {
   return (
     <>
     <ToastContainer className={`text-[14px]`}/>
-    <div className='w-screen h-screen flex flex-row items-center justify-center gap-[5vw] overflow-x-hidden '>
+    <div className='w-screen h-screen flex flex-row items-center justify-center gap-[5vw] overflow-x-hidden bg-gradient-to-tr from from-white to-slate-400'>
    <div className='flex items-center justify-center'>
     <img src='/assets/citcartoon.svg' alt='lost' loading='lazy' className='vmd:hidden md:block'/>
    </div>
