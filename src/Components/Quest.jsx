@@ -76,7 +76,6 @@ function Quest() {
     return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
   };
 
-
   return (
     <>
     <ToastContainer className={`text-[14px]`}/>
@@ -88,10 +87,10 @@ function Quest() {
     <form onSubmit={handleSubmit}>
     
     {questionarray.map((w,c)=>{
-      return <div key={c} className='w-full bg-slate-950 p-5 odd:bg-slate-800'>
+      return <div key={c} className='w-full p-5'>
       
     <div>
-    <p className=' overflow-hidden lg:px-[20vw] md:px-[15vw] sm:px-[10vw] sm:text-[20px] mb:px-[5vw] lg:py-0 vmd:py-5 mb:text-[17px] vmd:text-[15px] text-yellow-300 select-none text-wrap'>{c+1}. {w.question1}</p>
+    <p className=' overflow-hidden lg:px-[20vw] md:px-[15vw] sm:px-[10vw] sm:text-[20px] mb:px-[5vw] lg:py-0 vmd:py-5 mb:text-[17px] vmd:text-[15px] text-black select-none text-wrap'>{c+1}. {w.question1}</p>
     </div>
     <div className={`${w.questionImage==="" ? "hidden" : ""} w-full flex items-center justify-center`}>
       <div className={`${w.questionImage===undefined ? "hidden" :""} w-[200px] h-[200px] `}><img src={w.questionImage} alt={w.questionImage}/></div>
@@ -101,34 +100,49 @@ function Quest() {
       <div className='flex flex-col items-center justify-center gap-2 lg:mt-[5%]'>
 
     <div className='w-screen flex items-center justify-center vmd:gap-[10px]'>
-    <p className='text-yellow-300 font-bold'>A</p>
+    <p className='text-black font-bold'>A</p>
     <input type='radio' value={w.option1} name="name" onClick={(e)=>{setAnswers(prev => ({ ...prev, [c]: e.target.value }))
-    }} className='vmd:w-[10vw] sm:h-[30px] vmd:h-[15px] text-center text-blacksm:text-[22px] mb:text-[18px] vmd:text-[15px] border-2 outline-none rounded-full cursor-pointer'/>
+    }} className='vmd:w-[10vw] sm:h-[30px] vmd:h-[15px] text-center text-black sm:text-[22px] mb:text-[18px] vmd:text-[15px] border-2 outline-none rounded-full cursor-pointer'/>
 
-    <input value={w.option1} className=' text-center xl:w-[20vw] lg:w-[25vw] sm:w-[40vw] mb:w-[55vw] vmd:w-[55vw] lg:h-[40px] sm:h-[40px] h-[30px] lg:text-[20px] sm:text-[20px] mb:text-[17px] vmd:text-[14px] border-2 border-cyan-400 hover:opacity-60 text-white font-bold bg-gray-900 outline-none px-3 rounded-sm'/>
+    <input value={w.option1} readOnly className=' text-center xl:w-[20vw] lg:w-[25vw] sm:w-[40vw] mb:w-[55vw] vmd:w-[55vw] lg:h-[40px] sm:h-[40px] h-[30px] lg:text-[20px] sm:text-[20px] mb:text-[17px] vmd:text-[14px] border-2 border-cyan-400  text-white font-bold bg-gray-900 outline-none px-3 rounded-sm cursor-pointer'/>
     </div>
 
     <div className='w-screen flex items-center justify-center vmd:gap-[10px]'>
-    <p className='text-yellow-300 font-bold sm:text-[25px] vmd:text-[20px]'>B</p>
+    <p className='text-black font-bold sm:text-[25px] vmd:text-[20px]'>B</p>
     <input type='radio' value={w.option2} name="name" onClick={(e)=>{setAnswers(prev => ({ ...prev, [c]: e.target.value }))
     }} readOnly={true} className='vmd:w-[10vw] sm:h-[30px] vmd:h-[15px] text-center text-blacksm:text-[22px] mb:text-[18px] vmd:text-[15px] border-2 outline-none rounded-full cursor-pointer'/>
 
-    <input value={w.option2} placeholder='' readOnly={true} className=' text-center xl:w-[20vw] lg:w-[25vw] sm:w-[40vw] mb:w-[55vw] vmd:w-[55vw] lg:h-[40px] sm:h-[40px] h-[30px] lg:text-[20px] sm:text-[20px] mb:text-[17px] vmd:text-[14px] border-2 border-cyan-400 hover:opacity-60 text-white font-bold bg-gray-900 outline-none px-3 rounded-sm'/></div>
+    <input value={w.option2} placeholder='' readOnly={true} className=' text-center xl:w-[20vw] lg:w-[25vw] sm:w-[40vw] mb:w-[55vw] vmd:w-[55vw] lg:h-[40px] sm:h-[40px] h-[30px] lg:text-[20px] sm:text-[20px] mb:text-[17px] vmd:text-[14px] border-2 border-cyan-400  text-white font-bold bg-gray-900 outline-none px-3 rounded-sm cursor-pointer'/></div>
 
     <div className='w-screen flex items-center justify-center vmd:gap-[10px]'>
-    <p className='text-yellow-300 font-bold sm:text-[25px] vmd:text-[20px]'>C</p>
+    <p className='text-black font-bold sm:text-[25px] vmd:text-[20px]'>C</p>
     <input type='radio' value={w.option3} name="name" onClick={(e)=>{setAnswers(prev => ({ ...prev, [c]: e.target.value }))
     }} readOnly={true} className='vmd:w-[10vw] sm:h-[30px] vmd:h-[15px] text-center text-blacksm:text-[22px] mb:text-[18px] vmd:text-[15px] border-2 outline-none rounded-full cursor-pointer'/>
 
-    <input value={w.option3} placeholder='' readOnly={true} className=' text-center xl:w-[20vw] lg:w-[25vw] sm:w-[40vw] mb:w-[55vw] vmd:w-[55vw] lg:h-[40px] sm:h-[40px] h-[30px] lg:text-[20px] sm:text-[20px] mb:text-[17px] vmd:text-[14px] border-2 border-cyan-400 hover:opacity-60 text-white font-bold bg-gray-900 outline-none px-3 rounded-sm'/></div>
+    <input value={w.option3} placeholder='' readOnly={true} className=' text-center xl:w-[20vw] lg:w-[25vw] sm:w-[40vw] mb:w-[55vw] vmd:w-[55vw] lg:h-[40px] sm:h-[40px] h-[30px] lg:text-[20px] sm:text-[20px] mb:text-[17px] vmd:text-[14px] border-2 border-cyan-400 text-white font-bold bg-gray-900 outline-none px-3 rounded-sm cursor-pointer'/></div>
 
     <div className='w-screen flex items-center justify-center vmd:gap-[10px]'>
-    <p className='text-yellow-300 font-bold sm:text-[25px] vmd:text-[20px]'>D</p>
+    <p className='text-black font-bold sm:text-[25px] vmd:text-[20px]'>D</p>
     <input type='radio' value={w.option4} name="name" onClick={(e)=>{setAnswers(prev => ({ ...prev, [c]: e.target.value }))
     }} readOnly={true} className='vmd:w-[10vw] sm:h-[30px] vmd:h-[15px] text-center text-blacksm:text-[22px] mb:text-[18px] vmd:text-[15px] border-2 outline-none rounded-full cursor-pointer'/>
 
-    <input value={w.option4} placeholder='' readOnly={true} className=' text-center xl:w-[20vw] lg:w-[25vw] sm:w-[40vw] mb:w-[55vw] vmd:w-[55vw] lg:h-[40px] sm:h-[40px] h-[30px] lg:text-[20px] sm:text-[20px] mb:text-[17px] vmd:text-[14px] border-2 border-cyan-400 hover:opacity-60 text-white font-bold bg-gray-900 outline-none px-3 rounded-sm'/>
+    <input value={w.option4} placeholder='' readOnly={true} className=' text-center xl:w-[20vw] lg:w-[25vw] sm:w-[40vw] mb:w-[55vw] vmd:w-[55vw] lg:h-[40px] sm:h-[40px] h-[30px] lg:text-[20px] sm:text-[20px] mb:text-[17px] vmd:text-[14px] border-2 border-cyan-400  text-white font-bold bg-gray-900 outline-none px-3 rounded-sm cursor-pointer'/>
     </div>
+    <button type="button" onClick={()=>{
+        setAnswers(prev => ({
+    ...prev,
+    [c]: ''
+  }));
+
+  // Clear the selected radio button
+  const radios = document.getElementsByName("name");
+  radios.forEach(radio => {
+    radio.checked = false;
+  });
+    }} className="text-center px-4 bg-red-500 text-white rounded">
+  Clear
+</button>
+
 
     </div>
     </form>

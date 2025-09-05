@@ -2,6 +2,7 @@ import React, { lazy } from 'react'
 import { Routes ,Route, useNavigate} from 'react-router-dom'
 import NewPassword from '../Components/NewPassword'
 import { useEffect } from 'react'
+import VerifyUser from '../Components/VerifyUser'
 
 const AdminLogin=lazy(()=>import('../Admin/AdminLogin'))
 const AdminRegister=lazy(()=>import('../Admin/AdminRegister'))
@@ -31,6 +32,7 @@ function PageRoutes() {
     <Route path="/login" element={<Login/>} />
     <Route path="/forgetpassword" element={<ForgoPassword/>} />
     <Route path="/newpassword" element={<NewPassword/>} />
+    <Route path="/verifyemail" element={<VerifyUser/>} />
 
     
     <Route path="/startquiz" element={localStorage.getItem("token") ? <Quest/>:<Login/>} />

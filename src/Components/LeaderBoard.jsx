@@ -47,7 +47,7 @@ function LeaderBoard() {
     <div style={{background:"url(/assets/leaderboardCitbg.jpg)", backgroundRepeat:"no-repeat", backgroundSize:"100% 100%"}} className='tableee w-screen h-[78vh] overflow-y-scroll flex items-center justify-center '>
       {/* pink backround image png */}
     <table className='tableee w-screen h-[40vh] flex flex-col items-center p-3 gap-[1vh]  overflow-y-scroll'>
-      <tr className='2xl:w-[40vw] xl:w-[50vw] lg:w-[55vw] md:w-[60vw] sm:w-[65vw] vmd:w-[90vw] vmd:h-[5vh] odd:bg-[#5F185A] even::bg-[#DBCCC7] shadow-md hover:shadow-blue-900 bg-[#000F1E]  hover:bg-opacity-60 flex items-center justify-around lg:px-4 vmd:px-3 sm:rounded-s-[50px] vmd:rounded-[30px] lg:text-[25px] sm:text-[20px] vmd:text-[12px] cursor-pointer '>
+      <tr className='2xl:w-[40vw] xl:w-[50vw] lg:w-[55vw] md:w-[60vw] sm:w-[65vw] vmd:w-[90vw] vmd:h-[5vh] odd:bg-[#5F185A] even::bg-[#DBCCC7] shadow-md hover:shadow-blue-900 text-white  hover:bg-opacity-60 flex items-center justify-around lg:px-4 vmd:px-3 sm:rounded-s-[50px] vmd:rounded-[30px] lg:text-[25px] sm:text-[20px] vmd:text-[12px] cursor-pointer '>
         <th>Rank</th>
         <th>Email</th>
         <th>Score</th>

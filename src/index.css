@@ -28,11 +28,6 @@ a{
   text-decoration-color: blue;
 } 
 
-
-
-
-
-
 .hoverabout:hover{
   box-shadow: 3px 3px 20px 2px aqua;
   transition: 0.3s;
@@ -121,3 +116,12 @@ a{
   .button:hover::before {
     top: 0;
   }
+
+.hidescrollbar::-webkit-scrollbar-track {
+  display: none;
+}
+
+
+.chatUIShape{
+  clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+}

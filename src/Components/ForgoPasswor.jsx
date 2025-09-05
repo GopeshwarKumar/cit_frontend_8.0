@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import Loader from './Loader';
 
-function Login() {
+function ForgoPasswor() {
 
   const navigate=useNavigate()
 
@@ -18,6 +18,7 @@ function Login() {
 
     axios.post(`${process.env.REACT_APP_SECRET_KEY}/forgotpassword`,{email}).then(res =>{
       setloginerror(res.data.message)
+      console.log(res)
       if(res.status===200 && res.data.message==="otp sent to email"){
         navigate('/newpassword')
       }
@@ -30,26 +31,28 @@ function Login() {
 
   return (
     <>
-    <div className='w-screen h-screen flex  gap-[1px] flex-wrap items-center justify-center overflow-x-hidden overflow-y-hidden bg-slate-800'>
+    <div className='w-screen h-screen flex flex-row items-center justify-center gap-[5vw] overflow-x-hidden bg-gradient-to-tr from from-white to-slate-400'>
+
+    <div className='flex items-center justify-center'>
+    <img src='/assets/citcartoon.svg' alt='lost' loading='lazy' className='vmd:hidden md:block'/>
+   </div>
       
-    <div className=' w-[500px] h-[600px] flex flex-col 
-    items-center justify-center gap-[30px] '>
-   
-    <h2 className='sm:text-[50px] text-center vmd:text-[40px]'>Forgot Password</h2>
-    <form action='/login' method='post' onSubmit={LoginUser} className='flex flex-col items-center justify-center gap-[30px] '>
-      <input type='email' required placeholder='Enter E-mail' onChange={(e)=>{setemail(e.target.value)}} className='outline-none rounded 2xl:py-[10px] xl:py-[10px] lg:py-[10px] md:py-[10px] sm:py-[10px] py-[7px] 2xl:px-[20px] xl:px-[20px] lg:px-[20px] md:px-[20px] sm:px-[20px] px-[10px] font-sans 2xl:text-[25px] xl:text-[25px] lg:text-[25px] md:text-[25px] sm:text-[25px] text-[16px] text-black placeholder:text-slate-600 placeholder:hover:tracking-wider placeholder:duration-100 transition-all'/>
+    <div className=' flex flex-col items-center justify-center vmd:bg-slate-800 p-5 rounded-t-md shadow-2xl shadow-slate-800'>
+
+    <h1 className='sm:text-[40px] text-nowrap font-bold px-4 text-white p-5'>Forgot Password</h1>
+    <form action='/login' method='post' onSubmit={LoginUser} className='flex flex-col items-center justify-center gap-2'>
+      <input type='email' required placeholder='Enter E-mail' onChange={(e)=>{setemail(e.target.value)}} className='outline-none rounded py-[5px] px-[10px] font-sans placeholder:text-[16px] lg:text-[20px] text-[16px] text-black  placeholder:text-slate-600 placeholder:hover:tracking-tighter placeholder:duration-200 '/>
       <div className='flex flex-col gap-[5px]'>
-      {loader === false ?<button className='2xl:text-[25px] xl:text-[25px] lg:text-[25px] md:text-[25px] sm:text-[25px] text-[16px] py-[5px] px-[15px] rounded-[20px] hover:opacity-60 bg-blue-500 '>Send</button> : (<Loader></Loader>)}
-    <p className='text-rose-600 lg:text-[16px] sm:text-[14px] mb:text-[12px] vmd:text-[10px]'>{loginerror}</p>
+      {loader === false ?<button className='sm:text-[17px] text-[14px] py-[4px] px-[15px] no-underline rounded-md hover:opacity-60 bg-blue-500 text-black cursor-pointer'>Send</button> : (<Loader></Loader>)}
       </div>
     </form>
+    
+    {loginerror==="Wrong password"? (<p className='text-red-500 sm:text-[20px] vmd:text-[15px]'>{loginerror}</p>) : <p className='text-yellow-400 lg:text-[16px] sm:text-[16px] mb:text-[16px] vmd:text-[10px]'>{loginerror}</p>}
     </div>
     </div>
-
-
 
     </>
   )
 }
 
-export default Login
+export default ForgoPasswor

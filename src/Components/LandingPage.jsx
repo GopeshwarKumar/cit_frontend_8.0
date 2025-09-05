@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
+import ChatWithFreind from '../Notification/ChatWithFreind';
 
       
 
@@ -28,7 +29,7 @@ function LandingPage() {
   },[])
 
 
-  // const [isActive, setIsActive] = useState(true);
+  const [isActiveChatBox, setisActiveChatBox] = useState(false);
 
   const handleClick = () => {
   }
@@ -38,9 +39,9 @@ function LandingPage() {
    <Navbar/>
    <div>
 
-    <span className='w-screen leading-tight flex flex-col items-center justify-center opacity-100 sm:mt-[5%]'>
+    <span className='w-screen leading-tight flex flex-col items-center justify-center opacity-100 sm:mt-[5%] vmd:mt-[10%]'>
 
-    <h1 className='citword text-center text-wrap lg:text-[150px] sm:text-[130px] mb:text-[90px] text-[60px] tracking-[7px] font-extrabold flex items-center justify-center'>CIT</h1>
+    <h1 className='citword text-center text-wrap lg:text-[150px] sm:text-[130px] mb:text-[120px] vsm:text-[120px] text-[120px] tracking-[7px] font-extrabold flex items-center justify-center'>CIT</h1>
 
     <h3 className='citword text-center whitespace-nowrap xl:text-[40px] lg:text-[35px] md:text-[30px] sm:text-[26px] mb:text-[22px] text-[13px] font-serif text-black font-extrabold tracking-[2px]'>Cognitive Intelligence Test 2.0</h3>
     </span>
@@ -81,7 +82,15 @@ function LandingPage() {
 </div>
 
    </div>
+  
 
+  <div className='w-screen flex items-center justify-center'>
+    {isActiveChatBox===false ? <div className='w-[50px] h-[50px] text-[15px] font-bold rounded-full absolute bottom-5 right-5 cursor-pointer' onClick={()=>{setisActiveChatBox(true)}}></div> : <ChatWithFreind/> }
+    
+    {isActiveChatBox===true ? <div className='chatUIShape w-[50px] h-[50px] bg-[#c61e1e] text-center py-[14px] text-[15px] font-bold rounded-full absolute bottom-5 right-5 cursor-pointer hover:rotate-90 transition-all duration-150' onClick={()=>{setisActiveChatBox(false)}}>❌</div> : <div className='chatUIShape w-[50px] h-[50px] hover:opacity-85 transition-all duration-150 bg-[#7ad0a1] text-center py-[14px] text-[15px] font-bold rounded-full absolute bottom-5 right-5 cursor-pointer' onClick={()=>{setisActiveChatBox(true)}}>Chat</div>}
+
+
+  </div>
 
    </>
   )

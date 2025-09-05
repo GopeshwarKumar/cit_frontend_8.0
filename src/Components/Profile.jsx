@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Navbar from './Navbar'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 // import { AuthenticationContext } from '../Auth/AuthProvide'
 
 function Profile() {
@@ -14,7 +15,7 @@ function Profile() {
     // window.location.reload();
     navigate("/login")
   }
-
+  
   return (
     <div className="w-screen h-screen  ">
       <Navbar />
@@ -28,9 +29,9 @@ function Profile() {
         <div className='hover:translate-y-2 hover:-rotate-2 transition-all'>e</div>
         </div>
 
-      <div className="flex justify-center items-center mt-[5%]  ">
+      <div className="flex vmd:flex-col md:flex-row justify-center items-center gap-5 mt-[5%]  ">
         <div>
-          <img src='/assets/citcartoon.svg' alt='lost' loading='lazy' className='md:block vmd:hidden p-5'/>
+          <img src='/assets/citcartoon.svg' alt='lost' loading='lazy' className='md:block p-5'/>
         </div>
         <div className="shadow-xl shadow-slate-900 rounded-lg p-10 w-full max-w-md">
           <div className="space-y-4">
