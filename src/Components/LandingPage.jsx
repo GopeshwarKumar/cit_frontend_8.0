@@ -55,9 +55,11 @@ function LandingPage() {
         Go <FaArrowRight className=''/>
       </p>
       </Link>
-    </p>) :(<Link to="/startquiz" className={` px-[10px] py-[5px] no-underline text-yellow-300 hover:text-pink-700 hover:font-bold bg-gradient-to-tr from-blue-600 to-cyan-500 rounded-sm opacity-70 hover:opacity-100 hover:tracking-wider transition-all`} onClick={handleClick}>
+    </p>) :((<Suspense fallback={<p>Loading</p>}>
+      <Link to="/startquiz" className={` px-[10px] py-[5px] no-underline text-yellow-300 hover:text-pink-700 hover:font-bold bg-gradient-to-tr from-blue-600 to-cyan-500 rounded-sm opacity-70 hover:opacity-100 hover:tracking-wider transition-all`} onClick={handleClick}>
     Start Quiz
-    </Link>)}
+    </Link>
+    </Suspense>))}
 
     </div>
 
