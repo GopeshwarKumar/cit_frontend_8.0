@@ -61,7 +61,7 @@ function CreateQuestion() {
     <input
       value={questionImage}
       typeof="text"
-      placeholder="Image Link only"
+      placeholder="Image Link"
       onChange={(e) => setquestionImage(e.target.value)}
       className="w-full placeholder:text-[16px] lg:text-[20px] text-[16px] placeholder:text-slate-600 placeholder:hover:tracking-tighter placeholder:duration-200 text-black rounded-md  py-1 px-3 focus:outline-none border-b-4 border-transparent focus:border-yellow-300 transition-all resize-none"
     />
