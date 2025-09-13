@@ -59,7 +59,7 @@ function CreateQuestion() {
   <div>
     <label className="block text-yellow-200 mb-1 font-medium">Question Image</label>
     <input
-      value={questionImage} required
+      value={questionImage}
       typeof="text"
       placeholder="Image Link only"
       onChange={(e) => setquestionImage(e.target.value)}

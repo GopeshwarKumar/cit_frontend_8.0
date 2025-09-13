@@ -43,7 +43,7 @@ function VerifyUser() {
     }).catch((err)=>{
         toast.warn('Error found')
     }).finally((final)=>{
-      navigate('/login')
+      navigate('/')
         setactive(true)
     })
   }
@@ -57,11 +57,12 @@ function VerifyUser() {
     <img src='/assets/citcartoon.svg' alt='lost' loading='lazy' className='vmd:hidden md:block'/>
    </div>
       
-    <div className='min-h-[50vh] flex flex-col items-center justify-center vmd:bg-slate-800 p-5 rounded-t-md shadow-2xl shadow-slate-800'>
+    <div className='min-h-[50vh] w-[40vw] vmd:w-[400px] flex flex-col 
+    items-center justify-center gap-[10px] vmd:bg-[slate-800] p-5 rounded-t-md shadow-2xl shadow-slate-800'>
 
-    <h1 className='sm:text-[40px] text-nowrap font-bold px-4 text-white p-5'>Verify Email</h1>
+    <h1 className='sm:text-[40px] text-nowrap font-bold px-4 text-black p-5'>Verify Email</h1>
     {active=== true ? 
-    <form action='/login' method='post' onSubmit={LoginUser} className='flex flex-col items-center justify-center gap-2'>
+    <form method='post' onSubmit={LoginUser} className='flex flex-col items-center justify-center gap-2'>
       <input type='email' required placeholder='Enter E-mail' onChange={(e)=>{setemail(e.target.value)}} className='outline-none rounded py-[5px] px-[10px] font-sans placeholder:text-[16px] lg:text-[20px] text-[16px] text-black  placeholder:text-slate-600 placeholder:hover:tracking-tighter placeholder:duration-200 '/>
       
       <div className='flex flex-col gap-[5px]'>

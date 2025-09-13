@@ -1,7 +1,6 @@
 import React, { lazy } from 'react'
-import { Routes ,Route, useNavigate} from 'react-router-dom'
+import { Routes ,Route} from 'react-router-dom'
 import NewPassword from '../Components/NewPassword'
-import { useEffect } from 'react'
 import VerifyUser from '../Components/VerifyUser'
 
 const AdminLogin=lazy(()=>import('../Admin/AdminLogin'))
@@ -28,8 +27,8 @@ function PageRoutes() {
     <Route path="/AdminPanel" element={<AdminPanel/>} />
 
 
-    <Route path="/" element={<Register />} />
-    <Route path="/login" element={<Login/>} />
+    <Route path="/" element={<Login/>} />
+    <Route path="/register" element={<Register />} />
     <Route path="/forgetpassword" element={<ForgoPassword/>} />
     <Route path="/newpassword" element={<NewPassword/>} />
     <Route path="/verifyemail" element={<VerifyUser/>} />

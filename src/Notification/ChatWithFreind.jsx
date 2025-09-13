@@ -5,7 +5,7 @@ import {AnimatePresence, motion} from 'framer-motion'
 function ChatWithFreind() {
     
     // Initialize socket connection
-    const socket =useMemo(() =>io("http://localhost:5000/"),[]);
+    const socket =useMemo(() =>io(`${process.env.REACT_APP_SECRET_KEY}/`),[]);
 
     const [message, setMessage] = useState('');
     const [error, setError] = useState('');
@@ -47,7 +47,7 @@ useEffect(() => {
   return (
     <>
     <AnimatePresence>
-    <motion.div drag dragMomentum={false} className="w-[70vw] h-[40vh] p-6 bg-[#cfcecb] shadow-md rounded-lg">
+    <motion.div title='Drag' initial={{y:100}} drag dragMomentum={false} className="w-[70vw] h-[40vh] p-6 bg-gradient-to-t from-[#5fb486] to-[#3c805c] shadow-md rounded-lg z-100">
 <div className="hidescrollbar w-full h-[80%] overflow-y-scroll p-3 space-y-2">
   {messages.map((msg, index) => (
     <div key={index} className="flex justify-end">

@@ -13,23 +13,23 @@ function LandingPage() {
 
   // const userName=localStorage.getItem('name')
     const userEmail=localStorage.getItem('email')
-    const [message, setmessage] = useState()
-  
+    const [active, setactive] = useState(false)
+    const [isActiveChatBox, setisActiveChatBox] = useState(false);
+
+        
         useEffect(()=>{
+          setactive(false)
           axios.post(`${process.env.REACT_APP_SECRET_KEY}/checkuser`,{userEmail}).then(res =>{
-            setmessage(res.data.message)
-            if(res.status===200){
+            if(res.status===200 && res.data.message==='User has appeared for test !'){
               toast.warn(res.data.message)
             }
           }).catch(err=>{
   
           }).finally(final=>{
-  
+            setactive(true)
           })
   },[])
 
-
-  const [isActiveChatBox, setisActiveChatBox] = useState(false);
 
   const handleClick = () => {
   }
@@ -48,16 +48,17 @@ function LandingPage() {
     
 
    <div className='w-screen flex flex-col items-center justify-center absolute top-[70%]'>
-    {message==='User has appeared for test !' ? (<p className='flex items-center flex-col '>
+    {active ? (<p className='flex items-center flex-col '>
       <Link to="/leaderboard" className={`group text-[20px] px-[10px] py-[2px] no-underline font-bold text-green-600 hover:text-blue-700 hover:font-bold bg-[#f5deb3] rounded-sm opacity-70 hover:opacity-100 hover:tracking-wider transition-all`} onClick={handleClick}>
       <p className='group-hover:text-[0] transition-all duration-150'>Check Score</p>
       <p className='group-hover:text-[20px] text-[0] flex items-center gap-2 transition-all duration-150'>
         Go <FaArrowRight className=''/>
       </p>
       </Link>
-    </p>) :(<Link to="/startquiz" className={` px-[10px] py-[5px] no-underline text-yellow-300 hover:text-pink-700 hover:font-bold bg-gradient-to-tr from-blue-600 to-cyan-500 rounded-sm opacity-70 hover:opacity-100 hover:tracking-wider transition-all`} onClick={handleClick}>
+    </p>) :
+      <Link to="/startquiz" className={` px-[10px] py-[5px] no-underline text-yellow-300 hover:text-pink-700 hover:font-bold bg-gradient-to-tr from-blue-600 to-cyan-500 rounded-sm opacity-70 hover:opacity-100 hover:tracking-wider transition-all`} onClick={handleClick}>
     Start Quiz
-    </Link>)}
+    </Link>}
 
     </div>
 

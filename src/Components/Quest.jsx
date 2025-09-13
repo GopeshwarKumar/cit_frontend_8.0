@@ -21,7 +21,19 @@ function Quest() {
     }).catch(Err=>{
 
     }).finally(final =>{
+    })
+  },[])
 
+  useEffect(()=>{
+    axios.post(`${process.env.REACT_APP_SECRET_KEY}/appeared`,{userEmail,userName}).then(ress=>{
+      console.log(ress)
+      if (ress.data.message === 'User Appeared for test'){
+        navigate("/home")
+      }else {
+        // toast.success('Good Luck')
+      }
+
+      
     })
   },[])
 
@@ -148,6 +160,7 @@ function Quest() {
     </form>
     </div>
     })}
+
     <div className='w-screen p-3 flex items-center justify-center'>
       {active === false?(<button onSubmit={handleSubmit} type='submit' className='bg-yellow-300 px-[8px] py-[1px] font-bold text-slate-900 rounded-md transition-all active:text-green-500'>Submit</button>):(<Loader></Loader>)}
     </div>

@@ -44,12 +44,12 @@ function Register() {
    <div className='flex items-center justify-center'>
     <img src='/assets/citcartoon.svg' alt='lost' loading='lazy' className='vmd:hidden md:block'/>
    </div>
-    <div className=' flex flex-col 
-    items-center justify-center gap-[20px] p-5 rounded-t-md vmd:bg-slate-800 shadow-2xl shadow-slate-800'>
+    <div className='w-[40vw] vmd:w-[400px] flex flex-col 
+    items-center justify-center gap-[10px] vmd:bg-[slate-800] p-5 rounded-t-md shadow-2xl shadow-slate-800'>
       
-    <div>
-      <h1 className='text-white sm:text-[40px] text-nowrap px-4 '>Register Here</h1>
-    <h1 className='text-white text-center italic hover:tracking-wider duration-200'>CIT 7.0</h1>
+    <div className='text-black'>
+      <h1 className='sm:text-[40px] text-nowrap px-4 '>Register Here</h1>
+    <h1 className='text-center italic hover:tracking-wider duration-200'>CIT 2.0</h1>
     </div>
 
     <form action='/create' method='post' onSubmit={registerUser} className='flex flex-col items-center justify-center gap-[10px] '>
@@ -62,7 +62,7 @@ function Register() {
       <div className='w-full flex flex-col items-center justify-center gap-[10px] '>
 
         <div className='w-full flex items-center justify-center gap-[10px] '>
-        <Link to={"/login"} className='w-[80%] flex items-center gap-1 no-underline text-white text-center sm:text-[17px] text-[14px] py-[4px] px-[15px] rounded-md hover:opacity-60 bg-rose-500 cursor-pointer'>Login <FaLocationArrow /></Link>
+        <Link to={"/"} className='w-[80%] flex items-center gap-1 no-underline text-white text-center sm:text-[17px] text-[14px] py-[4px] px-[15px] rounded-md hover:opacity-60 bg-rose-500 cursor-pointer'>Login <FaLocationArrow /></Link>
         {loader ===false ?<button className='w-[80%] sm:text-[17px] text-[14px] py-[4px] px-[15px] rounded-md hover:opacity-60 bg-blue-500 cursor-pointer'>Register</button> : (<Loader></Loader>)}
         </div>
         <Link to={"/verifyemail"} className='flex items-center justify-center gap-1 no-underline text-white text-center sm:text-[17px] text-[14px] py-[4px] px-[15px] rounded-md hover:opacity-60 bg-[#469649] cursor-pointer'>Verify</Link>
