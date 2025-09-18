@@ -13,7 +13,7 @@ function Profile() {
     localStorage.removeItem("email")
     localStorage.removeItem("token")
     // window.location.reload();
-    navigate("/login")
+    navigate("/")
   }
   
   return (
