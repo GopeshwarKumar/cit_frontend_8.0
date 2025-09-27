@@ -34,12 +34,12 @@ function PageRoutes() {
     <Route path="/verifyemail" element={<VerifyUser/>} />
 
     
-    <Route path="/startquiz" element={localStorage.getItem("token") ? <Quest/>:<Login/>} />
-    <Route path="/home" element={localStorage.getItem("token") ?<LandingPage/> : <Login/>} />
-    <Route path="/faqs" element={localStorage.getItem("token") ? <FaqsQuestions/>:<Login/>} />
-    <Route path="/about" element={localStorage.getItem("token") ? <About/>:<Login/>} />
-    <Route path="/leaderboard" element={localStorage.getItem("token") ? <LeaderBoard/>:<Login/>} />
-    <Route path="/profile" element={localStorage.getItem("token") ? <Profile/>:<Login/>} />
+    <Route path="/startquiz" element={<Quest/>} />
+    <Route path="/home" element={<LandingPage/>} />
+    <Route path="/faqs" element={<FaqsQuestions/>} />
+    <Route path="/about" element={<About/>} />
+    <Route path="/leaderboard" element={<LeaderBoard/>} />
+    <Route path="/profile" element={<Profile/>} />
    </Routes>
    </>
   )

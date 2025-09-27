@@ -1,22 +1,41 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Navbar from './Navbar'
 import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
 import axios from 'axios'
+import { toast, ToastContainer } from 'react-toastify'
 // import { AuthenticationContext } from '../Auth/AuthProvide'
 
 function Profile() {
   const navigate=useNavigate()
   // const profileAuth =useContext(AuthenticationContext)
+  
+  useEffect(()=>{
+      if(!localStorage.getItem('email')){
+            navigate('/')
+          }
+    },[])
 
   const handleLogout = () => {
     localStorage.removeItem("name")
     localStorage.removeItem("email")
     localStorage.removeItem("token")
     // window.location.reload();
-    navigate("/login")
+    navigate("/")
   }
+
+  useEffect(()=>{
+    axios.get(`${process.env.REACT_APP_SECRET_KEY}/profile`,{withCredentials: true}).then(res=>{
+      console.log(res)
+    }).catch(err=>{
+      toast.warn('erro')
+      // console.log(err)
+    })
+  },[])
   
   return (
+    <>
+    <ToastContainer className={'text-[14px]'}/>
     <div className="w-screen h-screen  ">
       <Navbar />
         <div className='w-screen flex items-center justify-center gap-[2px] lg:text-[60px] sm:text-[45px] mb:text-[35px] text-[35px] text-center font-extrabold cursor-pointer'>
@@ -46,6 +65,7 @@ function Profile() {
         </div>
       </div>
     </div>
+    </>
   )
 }
 

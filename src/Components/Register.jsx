@@ -6,6 +6,7 @@ import { FaLocationArrow } from "react-icons/fa6";
 import {toast , ToastContainer} from 'react-toastify'
 import { GoogleLogin } from '@react-oauth/google'
 import { jwtDecode } from 'jwt-decode';
+import { useEffect } from 'react';
 
 function Register() {
 
@@ -16,17 +17,25 @@ function Register() {
   const [message, setmessage] = useState();
   const [loader, setloader] = useState(false)
 
+    useEffect(()=>{
+      if(localStorage.getItem('email')){
+        navigate('/home')
+      }
+    },[])
+
   const registerUser=async (e)=>{
     e.preventDefault()
     setloader(true)
 
     axios.post(`${process.env.REACT_APP_SECRET_KEY}/create`,{candidatename,email,pass}).then(res =>{
+      // console.log(res)
       setmessage(res.data.message)
 
       res.data.message==='Registered successfully' ? toast.success(res.data.message,{}) : toast.warn(res.data.message,{})
       if(res.status===200 && res.data.message==="Registered successfully"){
-        navigate('/verifyemail')
-      // setmessage('Login Link sent to email')
+      document.cookie = `usertoken=${res.data.usertoken}`
+      navigate('/verifyemail')
+      setmessage('Login Link sent to email')
       }else{
         // seterror(res.data.message)
       }
@@ -62,10 +71,10 @@ function Register() {
       <div className='w-full flex flex-col items-center justify-center gap-[10px] '>
 
         <div className='w-full flex items-center justify-center gap-[10px] '>
-        <Link to={"/"} className='w-[80%] flex items-center gap-1 no-underline text-white text-center sm:text-[17px] text-[14px] py-[4px] px-[15px] rounded-md hover:opacity-60 bg-rose-500 cursor-pointer'>Login <FaLocationArrow /></Link>
-        {loader ===false ?<button className='w-[80%] sm:text-[17px] text-[14px] py-[4px] px-[15px] rounded-md hover:opacity-60 bg-blue-500 cursor-pointer'>Register</button> : (<Loader></Loader>)}
+        <Link to={"/"} className='w-[80%] flex items-center gap-1 no-underline text-white text-center sm:text-[17px] text-[14px] py-[4px] px-[15px] rounded-md hover:opacity-80 bg-rose-500 cursor-pointer hover:tracking-wider transition-all duration-150'>Login <FaLocationArrow /></Link>
+        {loader ===false ?<button className='w-[80%] sm:text-[17px] text-[14px] py-[4px] px-[15px] rounded-md hover:opacity-80 bg-blue-500 cursor-pointer hover:tracking-wider transition-all duration-150'>Register</button> : (<Loader></Loader>)}
         </div>
-        <Link to={"/verifyemail"} className='flex items-center justify-center gap-1 no-underline text-white text-center sm:text-[17px] text-[14px] py-[4px] px-[15px] rounded-md hover:opacity-60 bg-[#469649] cursor-pointer'>Verify</Link>
+        <Link to={"/verifyemail"} className='flex items-center justify-center gap-1 no-underline text-white text-center sm:text-[17px] text-[14px] py-[4px] px-[15px] rounded-md hover:opacity-80 bg-[#469649] cursor-pointer hover:tracking-wider transition-all duration-150'>Verify</Link>
       <GoogleLogin title='Sign in' onSuccess={(credentialResponse)=>{
       const decoded = jwtDecode(credentialResponse.credential)
       setemail(decoded.email);

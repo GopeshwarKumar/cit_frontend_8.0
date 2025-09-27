@@ -117,9 +117,10 @@ a{
     top: 0;
   }
 
-.hidescrollbar::-webkit-scrollbar-track {
-  display: none;
+.hidescrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
+
 
 
 .chatUIShape{

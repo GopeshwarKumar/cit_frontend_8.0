@@ -28,13 +28,13 @@ function CreateQuestion() {
           alert('Error caught !')
         }).finally(final =>{
             setactive(false)
-            setanswer("")
-            setoption1("")
-            setoption2("")
-            setoption3("")
-            setoption4("")
-            setquestion1("")
-            setquestionImage("")
+            // setanswer("")
+            // setoption1("")
+            // setoption2("")
+            // setoption3("")
+            // setoption4("")
+            // setquestion1("")
+            // setquestionImage("")
         })
 
     }

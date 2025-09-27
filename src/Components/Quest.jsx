@@ -24,20 +24,17 @@ function Quest() {
     })
   },[])
 
-  useEffect(()=>{
-    axios.post(`${process.env.REACT_APP_SECRET_KEY}/appeared`,{userEmail,userName}).then(ress=>{
-      console.log(ress)
-      if (ress.data.message === 'User Appeared for test'){
-        navigate("/home")
-      }else {
-        // toast.success('Good Luck')
-      }
+  // useEffect(()=>{
+  //   axios.post(`${process.env.REACT_APP_SECRET_KEY}/appeared`,{userEmail,userName}).then(ress=>{
+  //     console.log(ress)
+  //     if (ress.data.message === 'User Appeared for test'){
+  //       navigate("/home")
+  //     }else {
+  //       // toast.success('Good Luck')
+  //     }
+  //   })
+  // },[])
 
-      
-    })
-  },[])
-
-  const [answers, setAnswers] = useState({});
   
   const userName=localStorage.getItem('name')
   const userEmail=localStorage.getItem('email')
@@ -51,13 +48,14 @@ function Quest() {
     
 // }, 15000); // 10 seconds
 
+  const [answers, setAnswers] = useState({});
   const handleSubmit = async(e) => {
   e.preventDefault()
   // clearTimeout(autoSubmitTimeout)
   setactive(true)
 
-  axios.post(`${process.env.REACT_APP_SECRET_KEY}/saveanswers`,{ answers,userName,userEmail}).then(res=>{
-
+  axios.post(`${process.env.REACT_APP_SECRET_KEY}/saveanswers`,{ answers,userName,userEmail},{withCredentials:true}).then(res=>{
+    // console.log(res)
     res.data.message==='Answer saved' ? toast.success(res.data.message) :toast.warn(res.data.message)
     if(res.status===200 && res.data.message==='Answer saved'){
       navigate('/home')
@@ -98,68 +96,125 @@ function Quest() {
     </div>
     <form onSubmit={handleSubmit}>
     
-    {questionarray.map((w,c)=>{
-      return <div key={c} className='w-full p-5'>
-      
-    <div>
-    <p className=' overflow-hidden lg:px-[20vw] md:px-[15vw] sm:px-[10vw] sm:text-[20px] mb:px-[5vw] lg:py-0 vmd:py-5 mb:text-[17px] vmd:text-[15px] text-black select-none text-wrap'>{c+1}. {w.question1}</p>
+      {questionarray.map((w, c) => {
+  return (
+    <div key={c} className='w-full p-5'>
+
+      {/* Question Text */}
+      <div>
+        <p className='overflow-hidden lg:px-[20vw] md:px-[15vw] sm:px-[10vw] sm:text-[20px] mb:px-[5vw] lg:py-0 vmd:py-5 mb:text-[17px] vmd:text-[15px] text-black select-none text-wrap'>
+          {c + 1}. {w.question1}
+        </p>
+      </div>
+
+      {/* Question Image (optional) */}
+      <div className={`${w.questionImage === "" ? "hidden" : ""} w-full flex items-center justify-center`}>
+        <div className={`${w.questionImage === undefined ? "hidden" : ""} w-[200px] h-[200px]`}>
+          <img src={w.questionImage} alt="questionImage" />
+        </div>
+      </div>
+
+      {/* Options Form */}
+      <form onSubmit={handleSubmit} id='formmm'>
+        <div className='flex flex-col items-center justify-center gap-2 lg:mt-[5%]'>
+
+          {/* Option A */}
+          <div className='w-screen flex items-center justify-center vmd:gap-[10px]'>
+            <p className='text-black font-bold'>A</p>
+            <input
+              type='radio'
+              value={w.option1}
+              name={`question-${c}`} // 👈 unique name
+              checked={answers[c] === w.option1}
+              onChange={(e) => setAnswers(prev => ({ ...prev, [c]: e.target.value }))}
+              className='vmd:w-[10vw] sm:h-[30px] vmd:h-[15px] text-center text-black sm:text-[22px] mb:text-[18px] vmd:text-[15px] border-2 outline-none rounded-full cursor-pointer'
+            />
+            <input
+              value={w.option1}
+              readOnly
+              className='text-center xl:w-[20vw] lg:w-[25vw] sm:w-[40vw] mb:w-[55vw] vmd:w-[55vw] lg:h-[40px] sm:h-[40px] h-[30px] lg:text-[20px] sm:text-[20px] mb:text-[17px] vmd:text-[14px] border-2 border-cyan-400 text-white font-bold bg-gray-900 outline-none px-3 rounded-sm cursor-pointer'
+            />
+          </div>
+
+          {/* Option B */}
+          <div className='w-screen flex items-center justify-center vmd:gap-[10px]'>
+            <p className='text-black font-bold sm:text-[25px] vmd:text-[20px]'>B</p>
+            <input
+              type='radio'
+              value={w.option2}
+              name={`question-${c}`}
+              checked={answers[c] === w.option2}
+              onChange={(e) => setAnswers(prev => ({ ...prev, [c]: e.target.value }))}
+              className='vmd:w-[10vw] sm:h-[30px] vmd:h-[15px] text-center text-black sm:text-[22px] mb:text-[18px] vmd:text-[15px] border-2 outline-none rounded-full cursor-pointer'
+            />
+            <input
+              value={w.option2}
+              readOnly
+              className='text-center xl:w-[20vw] lg:w-[25vw] sm:w-[40vw] mb:w-[55vw] vmd:w-[55vw] lg:h-[40px] sm:h-[40px] h-[30px] lg:text-[20px] sm:text-[20px] mb:text-[17px] vmd:text-[14px] border-2 border-cyan-400 text-white font-bold bg-gray-900 outline-none px-3 rounded-sm cursor-pointer'
+            />
+          </div>
+
+          {/* Option C */}
+          <div className='w-screen flex items-center justify-center vmd:gap-[10px]'>
+            <p className='text-black font-bold sm:text-[25px] vmd:text-[20px]'>C</p>
+            <input
+              type='radio'
+              value={w.option3}
+              name={`question-${c}`}
+              checked={answers[c] === w.option3}
+              onChange={(e) => setAnswers(prev => ({ ...prev, [c]: e.target.value }))}
+              className='vmd:w-[10vw] sm:h-[30px] vmd:h-[15px] text-center text-black sm:text-[22px] mb:text-[18px] vmd:text-[15px] border-2 outline-none rounded-full cursor-pointer'
+            />
+            <input
+              value={w.option3}
+              readOnly
+              className='text-center xl:w-[20vw] lg:w-[25vw] sm:w-[40vw] mb:w-[55vw] vmd:w-[55vw] lg:h-[40px] sm:h-[40px] h-[30px] lg:text-[20px] sm:text-[20px] mb:text-[17px] vmd:text-[14px] border-2 border-cyan-400 text-white font-bold bg-gray-900 outline-none px-3 rounded-sm cursor-pointer'
+            />
+          </div>
+
+          {/* Option D */}
+          <div className='w-screen flex items-center justify-center vmd:gap-[10px]'>
+            <p className='text-black font-bold sm:text-[25px] vmd:text-[20px]'>D</p>
+            <input
+              type='radio'
+              value={w.option4}
+              name={`question-${c}`}
+              checked={answers[c] === w.option4}
+              onChange={(e) => setAnswers(prev => ({ ...prev, [c]: e.target.value }))}
+              className='vmd:w-[10vw] sm:h-[30px] vmd:h-[15px] text-center text-black sm:text-[22px] mb:text-[18px] vmd:text-[15px] border-2 outline-none rounded-full cursor-pointer'
+            />
+            <input
+              value={w.option4}
+              readOnly
+              className='text-center xl:w-[20vw] lg:w-[25vw] sm:w-[40vw] mb:w-[55vw] vmd:w-[55vw] lg:h-[40px] sm:h-[40px] h-[30px] lg:text-[20px] sm:text-[20px] mb:text-[17px] vmd:text-[14px] border-2 border-cyan-400 text-white font-bold bg-gray-900 outline-none px-3 rounded-sm cursor-pointer'
+            />
+          </div>
+
+          {/* Clear Button */}
+          <button
+            type="button"
+            onClick={() => {
+              setAnswers(prev => ({
+                ...prev,
+                [c]: '',
+              }));
+
+              const radios = document.getElementsByName(`question-${c}`);
+              radios.forEach(radio => {
+                radio.checked = false;
+              });
+            }}
+            className="text-center px-4 bg-red-500 text-white rounded mt-4"
+          >
+            Clear
+          </button>
+
+        </div>
+      </form>
     </div>
-    <div className={`${w.questionImage==="" ? "hidden" : ""} w-full flex items-center justify-center`}>
-      <div className={`${w.questionImage===undefined ? "hidden" :""} w-[200px] h-[200px] `}><img src={w.questionImage} alt={w.questionImage}/></div>
-    </div>
-    {/* option div there are 4 div */}
-    <form onSubmit={handleSubmit} id='formmm'>
-      <div className='flex flex-col items-center justify-center gap-2 lg:mt-[5%]'>
+  );
+        })}
 
-    <div className='w-screen flex items-center justify-center vmd:gap-[10px]'>
-    <p className='text-black font-bold'>A</p>
-    <input type='radio' value={w.option1} name="name" onClick={(e)=>{setAnswers(prev => ({ ...prev, [c]: e.target.value }))
-    }} className='vmd:w-[10vw] sm:h-[30px] vmd:h-[15px] text-center text-black sm:text-[22px] mb:text-[18px] vmd:text-[15px] border-2 outline-none rounded-full cursor-pointer'/>
-
-    <input value={w.option1} readOnly className=' text-center xl:w-[20vw] lg:w-[25vw] sm:w-[40vw] mb:w-[55vw] vmd:w-[55vw] lg:h-[40px] sm:h-[40px] h-[30px] lg:text-[20px] sm:text-[20px] mb:text-[17px] vmd:text-[14px] border-2 border-cyan-400  text-white font-bold bg-gray-900 outline-none px-3 rounded-sm cursor-pointer'/>
-    </div>
-
-    <div className='w-screen flex items-center justify-center vmd:gap-[10px]'>
-    <p className='text-black font-bold sm:text-[25px] vmd:text-[20px]'>B</p>
-    <input type='radio' value={w.option2} name="name" onClick={(e)=>{setAnswers(prev => ({ ...prev, [c]: e.target.value }))
-    }} readOnly={true} className='vmd:w-[10vw] sm:h-[30px] vmd:h-[15px] text-center text-blacksm:text-[22px] mb:text-[18px] vmd:text-[15px] border-2 outline-none rounded-full cursor-pointer'/>
-
-    <input value={w.option2} placeholder='' readOnly={true} className=' text-center xl:w-[20vw] lg:w-[25vw] sm:w-[40vw] mb:w-[55vw] vmd:w-[55vw] lg:h-[40px] sm:h-[40px] h-[30px] lg:text-[20px] sm:text-[20px] mb:text-[17px] vmd:text-[14px] border-2 border-cyan-400  text-white font-bold bg-gray-900 outline-none px-3 rounded-sm cursor-pointer'/></div>
-
-    <div className='w-screen flex items-center justify-center vmd:gap-[10px]'>
-    <p className='text-black font-bold sm:text-[25px] vmd:text-[20px]'>C</p>
-    <input type='radio' value={w.option3} name="name" onClick={(e)=>{setAnswers(prev => ({ ...prev, [c]: e.target.value }))
-    }} readOnly={true} className='vmd:w-[10vw] sm:h-[30px] vmd:h-[15px] text-center text-blacksm:text-[22px] mb:text-[18px] vmd:text-[15px] border-2 outline-none rounded-full cursor-pointer'/>
-
-    <input value={w.option3} placeholder='' readOnly={true} className=' text-center xl:w-[20vw] lg:w-[25vw] sm:w-[40vw] mb:w-[55vw] vmd:w-[55vw] lg:h-[40px] sm:h-[40px] h-[30px] lg:text-[20px] sm:text-[20px] mb:text-[17px] vmd:text-[14px] border-2 border-cyan-400 text-white font-bold bg-gray-900 outline-none px-3 rounded-sm cursor-pointer'/></div>
-
-    <div className='w-screen flex items-center justify-center vmd:gap-[10px]'>
-    <p className='text-black font-bold sm:text-[25px] vmd:text-[20px]'>D</p>
-    <input type='radio' value={w.option4} name="name" onClick={(e)=>{setAnswers(prev => ({ ...prev, [c]: e.target.value }))
-    }} readOnly={true} className='vmd:w-[10vw] sm:h-[30px] vmd:h-[15px] text-center text-blacksm:text-[22px] mb:text-[18px] vmd:text-[15px] border-2 outline-none rounded-full cursor-pointer'/>
-
-    <input value={w.option4} placeholder='' readOnly={true} className=' text-center xl:w-[20vw] lg:w-[25vw] sm:w-[40vw] mb:w-[55vw] vmd:w-[55vw] lg:h-[40px] sm:h-[40px] h-[30px] lg:text-[20px] sm:text-[20px] mb:text-[17px] vmd:text-[14px] border-2 border-cyan-400  text-white font-bold bg-gray-900 outline-none px-3 rounded-sm cursor-pointer'/>
-    </div>
-    <button type="button" onClick={()=>{
-        setAnswers(prev => ({
-    ...prev,
-    [c]: ''
-  }));
-
-  // Clear the selected radio button
-  const radios = document.getElementsByName("name");
-  radios.forEach(radio => {
-    radio.checked = false;
-  });
-    }} className="text-center px-4 bg-red-500 text-white rounded">
-  Clear
-</button>
-
-
-    </div>
-    </form>
-    </div>
-    })}
 
     <div className='w-screen p-3 flex items-center justify-center'>
       {active === false?(<button onSubmit={handleSubmit} type='submit' className='bg-yellow-300 px-[8px] py-[1px] font-bold text-slate-900 rounded-md transition-all active:text-green-500'>Submit</button>):(<Loader></Loader>)}

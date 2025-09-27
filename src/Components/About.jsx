@@ -1,8 +1,17 @@
 import React from 'react'
 // import { MdArrowBackIos } from 'react-icons/md'
 import Navbar from './Navbar'
+import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
 
 function About() {
+      const navigate=useNavigate()
+
+      useEffect(()=>{
+        if(!localStorage.getItem('email')){
+          navigate('/')
+        }
+      },[])
   return (
     <div className=''>    
     <Navbar/>

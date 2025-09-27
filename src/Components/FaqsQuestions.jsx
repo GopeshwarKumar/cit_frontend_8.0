@@ -2,9 +2,19 @@ import React, { useState } from 'react'
 import { IoIosArrowDropdownCircle } from "react-icons/io";
 import { RxCross1 } from "react-icons/rx";
 import Navbar from './Navbar';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 function FaqsQuestions() {
-    const [ansactive,setansactive]=useState(false)
+        const navigate=useNavigate()
+  
+        const [ansactive,setansactive]=useState(false)
+
+        useEffect(()=>{
+          if(!localStorage.getItem('email')){
+            navigate('/')
+          }
+        },[])
 
     
   const questionarray = [

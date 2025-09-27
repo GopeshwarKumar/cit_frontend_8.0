@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom';
 import Loader from './Loader';
 import {toast , ToastContainer} from 'react-toastify'
+import { useEffect } from 'react';
 // import { useContext } from 'react';
 // import { AuthenticationContext } from '../Auth/AuthProvide';
 
@@ -17,21 +18,24 @@ function Login() {
   const [loginerror, setloginerror] = useState()
   const [loader, setloader] = useState(false)
 
-
+  useEffect(()=>{
+    if(localStorage.getItem('email')){
+      navigate('/home')
+    }
+  },[])
+  
   const LoginUser=async(e)=>{
     e.preventDefault()
     setloader(true)
     
-    await axios.post(`${process.env.REACT_APP_SECRET_KEY}/login`,{email,password}).then(res =>{
-      
+    axios.post(`${process.env.REACT_APP_SECRET_KEY}/login`,{email,password}).then(res =>{
       setloginerror(res.data.message)
       res.data.message==='User loggedIn' ? toast.success(res.data.message,{}) : toast.warn(res.data.message,{})
 
       if(res.status===200 && res.data.message==='User loggedIn'){
-        console.log(res)
+        document.cookie = `usertoken=${res.data.usertoken}`
         localStorage.setItem("name",res.data.name)
         localStorage.setItem("email",res.data.email)
-        localStorage.setItem("token",res.data.usertoken)
         navigate('/home');
       }
     }).catch(err =>{
@@ -64,9 +68,9 @@ function Login() {
         {/* <input type='checkbox' className='right-4 relative'/> */}
       </div>
       <div className='flex items-center justify-center gap-[20px]'>
-        <Link to={'/forgetpassword'} className='group bg-[#e31b1b] no-underline text-white text-center sm:text-[17px] text-[14px] py-[4px] px-[15px] rounded-md hover:opacity-60  cursor-pointer'>Forgot password
+        <Link to={'/forgetpassword'} className='group bg-[#e31b1b] no-underline text-white text-center sm:text-[17px] text-[14px] py-[4px] px-[10px] rounded-md hover:opacity-60  cursor-pointer hover:tracking-wider transition-all duration-150'>Forgot password
       </Link>
-      {loader === false ? <button className='flex items-center gap-1 no-underline text-white text-center sm:text-[17px] text-[14px] py-[4px] px-[15px] rounded-md hover:opacity-60 bg-[#D32343] cursor-pointer'>Login</button> :(<Loader></Loader>)}
+      {loader === false ? <button className='flex items-center gap-1 no-underline text-white text-center sm:text-[17px] text-[14px] py-[4px] px-[15px] rounded-md hover:opacity-60 bg-[#D32343] cursor-pointer hover:tracking-wider transition-all duration-150'>Login</button> :(<Loader></Loader>)}
       </div>
     </form>
     

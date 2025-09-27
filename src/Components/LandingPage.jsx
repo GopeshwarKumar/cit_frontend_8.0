@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {  FaFacebookSquare, FaInstagramSquare, FaLinkedin } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa6";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
@@ -11,22 +11,30 @@ import ChatWithFreind from '../Notification/ChatWithFreind';
 
 function LandingPage() {
 
+  const navigate=useNavigate()
+
   // const userName=localStorage.getItem('name')
     const userEmail=localStorage.getItem('email')
     const [active, setactive] = useState(false)
     const [isActiveChatBox, setisActiveChatBox] = useState(false);
+    const [activeQuizpopUp, setactiveQuizpopUp] = useState(false)
 
         
         useEffect(()=>{
-          setactive(false)
-          axios.post(`${process.env.REACT_APP_SECRET_KEY}/checkuser`,{userEmail}).then(res =>{
+          if(!localStorage.getItem('email')){
+            navigate('/')
+          }
+
+          axios.post(`${process.env.REACT_APP_SECRET_KEY}/checkuser`,{userEmail},{ withCredentials: true }).then(res =>{
+            console.log(res)
             if(res.status===200 && res.data.message==='User has appeared for test !'){
               toast.warn(res.data.message)
+              setactive(true)
             }
           }).catch(err=>{
   
           }).finally(final=>{
-            setactive(true)
+            // setactive(true)
           })
   },[])
 
@@ -48,17 +56,29 @@ function LandingPage() {
     
 
    <div className='w-screen flex flex-col items-center justify-center absolute top-[70%]'>
-    {active ? (<p className='flex items-center flex-col '>
+    {active ===true &&<p className='flex items-center flex-col '>
       <Link to="/leaderboard" className={`group text-[20px] px-[10px] py-[2px] no-underline font-bold text-green-600 hover:text-blue-700 hover:font-bold bg-[#f5deb3] rounded-sm opacity-70 hover:opacity-100 hover:tracking-wider transition-all`} onClick={handleClick}>
       <p className='group-hover:text-[0] transition-all duration-150'>Check Score</p>
       <p className='group-hover:text-[20px] text-[0] flex items-center gap-2 transition-all duration-150'>
         Go <FaArrowRight className=''/>
       </p>
       </Link>
-    </p>) :
-      <Link to="/startquiz" className={` px-[10px] py-[5px] no-underline text-yellow-300 hover:text-pink-700 hover:font-bold bg-gradient-to-tr from-blue-600 to-cyan-500 rounded-sm opacity-70 hover:opacity-100 hover:tracking-wider transition-all`} onClick={handleClick}>
+    </p>}
+    {active ===false &&<p className={` px-[10px] py-[4px] no-underline text-black hover:text-pink-700 hover:font-bold bg-[#1cb3cb] hover:rounded-ee-3xl hover:rounded-ss-3xl opacity-70 hover:opacity-100 hover:tracking-wider transition-all duration-400 cursor-pointer`} onClick={()=>{setactiveQuizpopUp(true)}}>
     Start Quiz
-    </Link>}
+    </p>}
+
+    {activeQuizpopUp && <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center">
+      <div className="bg-white rounded-lg p-6 w-[90%] max-w-md shadow-lg">
+        <h2 className="text-2xl font-semibold mb-4 text-center text-gray-800">Start Quiz</h2>
+        <p className="mb-6 text-center text-black">Are you ready to begin the quiz?</p>
+        <div className="flex justify-center gap-4 text-[17px]">
+          <button onClick={()=>{setactiveQuizpopUp(false)}} className="bg-red-600 hover:bg-red-700 hover:tracking-wide transition-all duration-150 text-white font-medium py-1 px-4 rounded"
+          >Cancel</button>
+          <Link to="/startquiz" className="bg-green-600 no-underline hover:bg-green-700 hover:tracking-wide transition-all duration-150 text-white font-medium py-1 px-4 rounded">Start</Link>
+        </div>
+      </div>
+    </div>}
 
     </div>
 
