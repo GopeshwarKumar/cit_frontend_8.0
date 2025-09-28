@@ -76,7 +76,7 @@ function Login() {
     
     <div className='flex flex-col items-center font-serif sm:text-[17px] text-[14px]'>
       <p>New User</p>
-        <Link to={"/register"} className='sm:text-[17px] text-[14px] underline underline-offset-2 text-[#2b13db] cursor-pointer hover:tracking-tighter transition-all duration-150'>Register</Link>
+        <Link to={"/"} className='sm:text-[17px] text-[14px] underline underline-offset-2 text-[#2b13db] cursor-pointer hover:tracking-tighter transition-all duration-150'>Register</Link>
     </div>
     
     {loginerror==="Wrong password"? (<p className='text-red-500 sm:text-[20px] vmd:text-[15px]'>{loginerror}</p>) : <p className='text-yellow-400 lg:text-[16px] sm:text-[16px] mb:text-[16px] vmd:text-[10px]'>{loginerror}</p>}
