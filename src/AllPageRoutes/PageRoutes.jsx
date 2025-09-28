@@ -27,8 +27,8 @@ function PageRoutes() {
     <Route path="/AdminPanel" element={<AdminPanel/>} />
 
 
-    <Route path="/" element={<Login/>} />
-    <Route path="/register" element={<Register />} />
+    <Route path="/login" element={<Login/>} />
+    <Route path="/" element={<Register />} />
     <Route path="/forgetpassword" element={<ForgoPassword/>} />
     <Route path="/newpassword" element={<NewPassword/>} />
     <Route path="/verifyemail" element={<VerifyUser/>} />
