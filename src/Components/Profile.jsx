@@ -19,14 +19,14 @@ function Profile() {
   const handleLogout = () => {
     localStorage.removeItem("name")
     localStorage.removeItem("email")
-    localStorage.removeItem("token")
+    // localStorage.removeItem("token")
     // window.location.reload();
-    navigate("/")
+    navigate("/login")
   }
 
   useEffect(()=>{
     axios.get(`${process.env.REACT_APP_SECRET_KEY}/profile`,{withCredentials: true}).then(res=>{
-      console.log(res)
+      // console.log(res)
     }).catch(err=>{
       toast.warn('erro')
       // console.log(err)
