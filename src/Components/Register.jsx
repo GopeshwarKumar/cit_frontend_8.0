@@ -71,7 +71,7 @@ function Register() {
       <div className='w-full flex flex-col items-center justify-center gap-[10px] '>
 
         <div className='w-full flex items-center justify-center gap-[10px] '>
-        <Link to={"/"} className='w-[80%] flex items-center gap-1 no-underline text-white text-center sm:text-[17px] text-[14px] py-[4px] px-[15px] rounded-md hover:opacity-80 bg-rose-500 cursor-pointer hover:tracking-wider transition-all duration-150'>Login <FaLocationArrow /></Link>
+        <Link to={"/login"} className='w-[80%] flex items-center gap-1 no-underline text-white text-center sm:text-[17px] text-[14px] py-[4px] px-[15px] rounded-md hover:opacity-80 bg-rose-500 cursor-pointer hover:tracking-wider transition-all duration-150'>Login <FaLocationArrow /></Link>
         {loader ===false ?<button className='w-[80%] sm:text-[17px] text-[14px] py-[4px] px-[15px] rounded-md hover:opacity-80 bg-blue-500 cursor-pointer hover:tracking-wider transition-all duration-150'>Register</button> : (<Loader></Loader>)}
         </div>
         <Link to={"/verifyemail"} className='flex items-center justify-center gap-1 no-underline text-white text-center sm:text-[17px] text-[14px] py-[4px] px-[15px] rounded-md hover:opacity-80 bg-[#469649] cursor-pointer hover:tracking-wider transition-all duration-150'>Verify</Link>
